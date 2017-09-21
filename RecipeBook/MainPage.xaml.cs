@@ -23,12 +23,14 @@ namespace RecipeBook
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
         public MainPage()
         {
             this.InitializeComponent();
-            Organization = new OrganizationViewModel("Office");
+            RecipeBook = new MainViewModel();
         }
 
-        public OrganizationViewModel Organization { get; set; }
+        public MainViewModel RecipeBook { get; set; }
+
     }
 }
