@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RecipeBook.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,9 @@ namespace RecipeBook
         public MainPage()
         {
             this.InitializeComponent();
+            Organization = new OrganizationViewModel("Office");
         }
+
+        public OrganizationViewModel Organization { get; set; }
     }
 }
