@@ -7,30 +7,53 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace RecipeBook.Data
-{   
+{
     public class BusinessLayer
     {
-        public static String Name = "Fake Data Service.";
+        private static BusinessLayer _instance = null;
+
+        public static BusinessLayer Instance()
+        {
+            if (_instance == null)
+            {
+                _instance = new BusinessLayer();
+            }
+
+            return _instance;
+        }
+
+        private BusinessLayer()
+        {
+            //TODO: db init stb
+        }
+
 
         public static List<Recipe> GetRecipes()
         {
-            Debug.WriteLine("GET for people.");
+            //TODO: get recipes from DB
+            var flour = new Ingredient { Name = "liszt", Quantity = 0.5, Unit = "kg" };
+            var water = new Ingredient { Name = "víz", Quantity = 0.2, Unit = "l" };
+            var ingredients = new List<Ingredient>();
+            ingredients.Add(flour);
+            ingredients.Add(water);
+
             return new List<Recipe>()
                 {
-                    new Recipe() { Name="Borsóleves"},
-                    new Recipe() { Name="Lasagna"},
-                    new Recipe() { Name="Pizza" }
+                    new Recipe { Name="Borsóleves", Description="Meg kell főzni", Ingredients=ingredients},
+                    new Recipe { Name="Lasagna", Description="Meg kell sütni", Ingredients=ingredients},
+                    new Recipe { Name="Pizza" , Description="Meg kell sütni", Ingredients=ingredients}
                 };
         }
 
-        public static void Write(Recipe person)
+        public static void AddRecipe(Recipe recipe)
         {
-            Debug.WriteLine("INSERT person with name " + person.Name);
+            //TODO: insert recipe to DB
         }
 
-        public static void Delete(Recipe person)
+        public static void DeleteRecipe(Recipe recipe)
         {
-            Debug.WriteLine("DELETE person with name " + person.Name);
+            //TODO: delete recipe from DB
         }
+
     }
 }

@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace RecipeBook.Models
 {
-    public class RecipeBook
+    public class MyRecipeBook
     {
         public List<Recipe> Recipes { get; set; }
 
-        public RecipeBook(String databaseName)
+        public MyRecipeBook()
         {
             Recipes = BusinessLayer.GetRecipes();
         }
@@ -21,7 +21,7 @@ namespace RecipeBook.Models
             if (!Recipes.Contains(recipe))
             {
                 Recipes.Add(recipe);
-                BusinessLayer.Write(recipe);
+                BusinessLayer.AddRecipe(recipe);
             }
         }
 
@@ -30,13 +30,8 @@ namespace RecipeBook.Models
             if (Recipes.Contains(recipe))
             {
                 Recipes.Remove(recipe);
-                BusinessLayer.Delete(recipe);
+                BusinessLayer.DeleteRecipe(recipe);
             }
-        }
-
-        public void Update(Recipe recipe)
-        {
-            BusinessLayer.Write(recipe);
         }
     }
 }

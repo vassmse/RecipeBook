@@ -12,11 +12,22 @@ namespace RecipeBook.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {
-        Models.RecipeBook recipeBook;
+        private MyRecipeBook recipeBook;
+
+        public MyRecipeBook RecipeBook
+        {
+            get { return recipeBook; }
+            set
+            {
+                recipeBook = value;
+                NotifyPropertyChanged("RecipeBook");
+            }
+        }
+
 
         public MainViewModel()
         {
-
+            recipeBook = new MyRecipeBook();
         }
                 
 
@@ -27,7 +38,11 @@ namespace RecipeBook.ViewModels
         }
 
 
-
         public event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyPropertyChanged(String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }
