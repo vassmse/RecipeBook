@@ -23,12 +23,10 @@ namespace RecipeBook
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        public MainViewModel RecipeBook { get; set; }
-
         public MainPage()
         {
             this.InitializeComponent();
-            RecipeBook = new MainViewModel();
+            DataContext = new MainViewModel();    
         }
 
     }

@@ -20,14 +20,25 @@ namespace RecipeBook.ViewModels
             set
             {
                 recipeBook = value;
-                NotifyPropertyChanged("RecipeBook");
+                RaisePropertyChanged("RecipeBook");               
+
             }
         }
+
+        private string test;
+
+        public string Test
+        {
+            get { return test; }
+            set { test = value; RaisePropertyChanged("Test"); }
+        }
+
 
 
         public MainViewModel()
         {
             recipeBook = new MyRecipeBook();
+            Test = "a";
         }
                 
 
@@ -38,11 +49,13 @@ namespace RecipeBook.ViewModels
         }
 
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged = delegate { };
 
-        private void NotifyPropertyChanged(String propertyName = "")
+        private void RaisePropertyChanged(string propertyName)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            var handlers = PropertyChanged;
+
+            handlers(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

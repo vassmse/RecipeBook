@@ -8,6 +8,8 @@
     x:Class="RecipeBook.MainPage"
     mc:Ignorable="d">
 
+    <TextBlock Text="{Binding Test}"  Height="20px" Width="200px"></TextBlock>
+
 </Page>
 
     
