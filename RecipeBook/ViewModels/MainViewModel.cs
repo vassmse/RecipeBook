@@ -20,15 +20,14 @@ namespace RecipeBook.ViewModels
             set
             {
                 recipeBook = value;
-                RaisePropertyChanged("RecipeBook");               
-
+                RaisePropertyChanged("RecipeBook");    
             }
         }
 
 
         public MainViewModel()
         {
-            recipeBook = new MyRecipeBook();
+            RecipeBook = new MyRecipeBook();            
         }
                 
 
