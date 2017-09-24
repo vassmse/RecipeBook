@@ -33,9 +33,11 @@ namespace RecipeBook.Data
             //TODO: get recipes from DB
             var flour = new Ingredient { Name = "liszt", Quantity = 0.5, Unit = "kg" };
             var water = new Ingredient { Name = "víz", Quantity = 0.2, Unit = "l" };
-            var ingredients = new List<Ingredient>();
-            ingredients.Add(flour);
-            ingredients.Add(water);
+            var ingredients = new List<Ingredient>
+            {
+                flour,
+                water
+            };
 
             return new List<Recipe>()
                 {

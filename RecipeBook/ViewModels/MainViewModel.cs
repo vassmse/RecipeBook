@@ -25,20 +25,10 @@ namespace RecipeBook.ViewModels
             }
         }
 
-        private string test;
-
-        public string Test
-        {
-            get { return test; }
-            set { test = value; RaisePropertyChanged("Test"); }
-        }
-
-
 
         public MainViewModel()
         {
             recipeBook = new MyRecipeBook();
-            Test = "a";
         }
                 
 
