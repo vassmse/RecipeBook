@@ -107,7 +107,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="EntryPoints\RecipeManager.cs" />
-    <Compile Include="Models\MyRecipeBook.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\RecipeBookBLL.rd.xml" />
   </ItemGroup>

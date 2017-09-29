@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.Toolkit.Uwp;
 using RecipeBookInterfaces.Models;
 using RecipeBookBLL.EntryPoints;
+using RecipeBook.Models;
 
 namespace RecipeBook.ViewModels
 {
@@ -15,9 +16,9 @@ namespace RecipeBook.ViewModels
     {
         public RecipeManager BusinessLayer { get; set; }
 
-        private IMyRecipeBook recipeBook;
+        private MyRecipeBook recipeBook;
 
-        public IMyRecipeBook RecipeBook
+        public MyRecipeBook RecipeBook
         {
             get { return recipeBook; }
             set
@@ -32,7 +33,7 @@ namespace RecipeBook.ViewModels
         public MainViewModel()
         {
             BusinessLayer = new RecipeManager();
-            //RecipeBook = BusinessLayer.
+            RecipeBook = new MyRecipeBook(BusinessLayer);
         }
                 
 
