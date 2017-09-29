@@ -10,12 +10,23 @@ namespace RecipeBookBLL.EntryPoints
 {
     public class RecipeManager : IRecipeManager
     {
-        private RecipeManager()
-        {
-            //TODO: db init stb
-        }
+        #region Singleton
 
+        //private static readonly RecipeManager instance = new RecipeManager();
 
+        //private RecipeManager() { }
+
+        //public static RecipeManager Instance
+        //{
+        //    get
+        //    {
+        //        return instance;
+        //    }
+        //}
+
+        #endregion
+
+        
         public List<Recipe> GetRecipes()
         {
             //TODO: get recipes from DB

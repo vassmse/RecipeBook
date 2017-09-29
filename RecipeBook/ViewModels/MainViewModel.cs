@@ -31,7 +31,8 @@ namespace RecipeBook.ViewModels
 
         public MainViewModel()
         {
-            //RecipeBook = new MyRecipeBook();            
+            BusinessLayer = new RecipeManager();
+            //RecipeBook = BusinessLayer.
         }
                 
 
