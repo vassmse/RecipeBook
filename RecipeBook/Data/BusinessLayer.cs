@@ -31,8 +31,8 @@ namespace RecipeBook.Data
         public static List<Recipe> GetRecipes()
         {
             //TODO: get recipes from DB
-            var flour = new Ingredient { Name = "liszt", Quantity = 0.5, Unit = "kg" };
-            var water = new Ingredient { Name = "víz", Quantity = 0.2, Unit = "l" };
+            var flour = new Ingredient { Name = "liszt", Quantity = 0.5, Unit = IngredientUnit.kg };
+            var water = new Ingredient { Name = "víz", Quantity = 0.2, Unit = IngredientUnit.liter };
             var ingredients = new List<Ingredient>
             {
                 flour,
