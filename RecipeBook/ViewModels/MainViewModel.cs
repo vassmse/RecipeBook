@@ -14,28 +14,34 @@ namespace RecipeBook.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {
-        public RecipeManager BusinessLayer { get; set; }
+        #region Properties
+
+        private RecipeManager _businessLayer { get; set; }
 
         private MyRecipeBook recipeBook;
-
         public MyRecipeBook RecipeBook
         {
             get { return recipeBook; }
             set
             {
                 recipeBook = value;
-                RaisePropertyChanged("RecipeBook");    
+                RaisePropertyChanged("RecipeBook");
             }
         }
 
-        
+        #endregion
+
+        #region Constructor
 
         public MainViewModel()
         {
-            BusinessLayer = new RecipeManager();
-            RecipeBook = new MyRecipeBook(BusinessLayer);
+            _businessLayer = new RecipeManager();
+            RecipeBook = new MyRecipeBook(_businessLayer);
         }
-                
+
+        #endregion
+
+        #region Public methods
 
         public void Add()
         {
@@ -43,6 +49,9 @@ namespace RecipeBook.ViewModels
             recipeBook.Add(recipe);
         }
 
+        #endregion
+
+        #region PropertyChangedEventHandler
 
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
 
@@ -52,5 +61,7 @@ namespace RecipeBook.ViewModels
 
             handlers(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        #endregion
     }
 }

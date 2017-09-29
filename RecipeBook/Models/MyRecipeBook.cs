@@ -10,13 +10,14 @@ namespace RecipeBook.Models
 {
     public class MyRecipeBook : IMyRecipeBook
     {
-        public IRecipeManager BusinessLayer { get; set; }
-
         public List<Recipe> Recipes { get; set; }
+
+        public IRecipeManager BusinessLayer { get; set; }
 
         public MyRecipeBook(IRecipeManager businessLayer)
         {
-            Recipes = businessLayer.GetRecipes();
+            this.BusinessLayer = businessLayer;
+            Recipes = this.BusinessLayer.GetRecipes();
         }
 
         public void Add(Recipe recipe)
