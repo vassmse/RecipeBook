@@ -99,13 +99,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Data\BusinessLayer.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\Ingredient.cs" />
-    <Compile Include="Models\Recipe.cs" />
-    <Compile Include="Models\MyRecipeBook.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
   </ItemGroup>
@@ -215,6 +211,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="RecipeBook_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RecipeBookBLL\RecipeBookBLL.csproj">
+      <Project>{42aaa73a-2d1f-42d3-9d67-49b21c2f2c90}</Project>
+      <Name>RecipeBookBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RecipeBookInterfaces\RecipeBookInterfaces.csproj">
+      <Project>{f52d5a2d-977d-4abc-b9a4-89350441ed55}</Project>
+      <Name>RecipeBookInterfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

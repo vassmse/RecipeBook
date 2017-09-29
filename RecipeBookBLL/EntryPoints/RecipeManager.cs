@@ -1,34 +1,22 @@
-﻿using RecipeBook.Models;
+﻿using RecipeBookInterfaces.EntryPoints;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RecipeBookInterfaces.Models;
 
-namespace RecipeBook.Data
+namespace RecipeBookBLL.EntryPoints
 {
-    public class BusinessLayer
+    public class RecipeManager : IRecipeManager
     {
-        private static BusinessLayer _instance = null;
-
-        public static BusinessLayer Instance()
-        {
-            if (_instance == null)
-            {
-                _instance = new BusinessLayer();
-            }
-
-            return _instance;
-        }
-
-        private BusinessLayer()
+        private RecipeManager()
         {
             //TODO: db init stb
         }
 
 
-        public static List<Recipe> GetRecipes()
+        public List<Recipe> GetRecipes()
         {
             //TODO: get recipes from DB
             var flour = new Ingredient { Name = "liszt", Quantity = 0.5, Unit = IngredientUnit.kg };
@@ -47,15 +35,14 @@ namespace RecipeBook.Data
                 };
         }
 
-        public static void AddRecipe(Recipe recipe)
+        public void AddRecipe(Recipe recipe)
         {
             //TODO: insert recipe to DB
         }
 
-        public static void DeleteRecipe(Recipe recipe)
+        public void DeleteRecipe(Recipe recipe)
         {
             //TODO: delete recipe from DB
         }
-
     }
 }

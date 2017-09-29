@@ -1,5 +1,4 @@
-﻿using RecipeBook.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -7,14 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Toolkit.Uwp;
+using RecipeBookInterfaces.Models;
+using RecipeBookBLL.EntryPoints;
 
 namespace RecipeBook.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {
-        private MyRecipeBook recipeBook;
+        public RecipeManager BusinessLayer { get; set; }
 
-        public MyRecipeBook RecipeBook
+        private IMyRecipeBook recipeBook;
+
+        public IMyRecipeBook RecipeBook
         {
             get { return recipeBook; }
             set
@@ -24,10 +27,11 @@ namespace RecipeBook.ViewModels
             }
         }
 
+        
 
         public MainViewModel()
         {
-            RecipeBook = new MyRecipeBook();            
+            //RecipeBook = new MyRecipeBook();            
         }
                 
 

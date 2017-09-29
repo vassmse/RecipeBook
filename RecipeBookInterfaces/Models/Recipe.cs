@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Windows.UI.Xaml.Controls;
 
-namespace RecipeBook.Models
+namespace RecipeBookInterfaces.Models
 {
     public class Recipe
     {
@@ -20,6 +19,5 @@ namespace RecipeBook.Models
         public List<Ingredient> Ingredients { get; set; }
 
         public byte[] Image { get; set; }
-
     }
 }
