@@ -1,4 +1,5 @@
-﻿using RecipeBookInterfaces.EntryPoints;
+﻿using Microsoft.EntityFrameworkCore;
+using RecipeBookInterfaces.EntryPoints;
 using RecipeBookInterfaces.Models;
 using System;
 using System.Collections.Generic;
@@ -8,23 +9,6 @@ namespace RecipeBookBLL.Models
 {
     public class RecipeManager : IRecipeManager
     {
-        #region Singleton
-
-        //private static readonly RecipeManager instance = new RecipeManager();
-
-        //private RecipeManager() { }
-
-        //public static RecipeManager Instance
-        //{
-        //    get
-        //    {
-        //        return instance;
-        //    }
-        //}
-
-        #endregion
-
-
         public List<Recipe> GetRecipes()
         {
             //TODO: get recipes from DB
