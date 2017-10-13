@@ -1,16 +1,12 @@
 ﻿using RecipeBookInterfaces.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace RecipeBookInterfaces.EntryPoints
 {
     public interface IRecipeManager
     {
-        //???static IRecipeManager Instance;
-
         List<Recipe> GetRecipes();
 
         void AddRecipe(Recipe recipe);

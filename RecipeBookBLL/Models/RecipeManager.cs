@@ -1,12 +1,10 @@
 ﻿using RecipeBookInterfaces.EntryPoints;
+using RecipeBookInterfaces.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using RecipeBookInterfaces.Models;
 
-namespace RecipeBookBLL.EntryPoints
+namespace RecipeBookBLL.Models
 {
     public class RecipeManager : IRecipeManager
     {
@@ -26,7 +24,7 @@ namespace RecipeBookBLL.EntryPoints
 
         #endregion
 
-        
+
         public List<Recipe> GetRecipes()
         {
             //TODO: get recipes from DB

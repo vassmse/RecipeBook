@@ -7,8 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Toolkit.Uwp;
 using RecipeBookInterfaces.Models;
-using RecipeBookBLL.EntryPoints;
 using RecipeBook.Models;
+using RecipeBookBLL.Models;
 
 namespace RecipeBook.ViewModels
 {
