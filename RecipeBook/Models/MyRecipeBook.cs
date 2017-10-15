@@ -32,11 +32,12 @@ namespace RecipeBook.Models
 
         public void Delete(Recipe recipe)
         {
-            if (Recipes.Contains(recipe))
-            {
-                Recipes.Remove(recipe);
-                BusinessLayer.DeleteRecipe(recipe);
-            }
+            throw new NotImplementedException();
+        }
+
+        public void Modify(Recipe recipe)
+        {
+            throw new NotImplementedException();
         }
     }
 }

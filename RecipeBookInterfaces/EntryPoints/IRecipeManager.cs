@@ -13,5 +13,7 @@ namespace RecipeBookInterfaces.EntryPoints
         void AddRecipe(Recipe recipe);
 
         void DeleteRecipe(Recipe recipe);
+
+        void ModifyRecipe(Recipe recipe);
     }
 }

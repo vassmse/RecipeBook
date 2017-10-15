@@ -10,5 +10,7 @@ namespace RecipeBookInterfaces.Models
         void Add(Recipe recipe);
 
         void Delete(Recipe recipe);
+
+        void Modify(Recipe recipe);
     }
 }

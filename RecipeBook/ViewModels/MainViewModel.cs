@@ -46,7 +46,7 @@ namespace RecipeBook.ViewModels
 
         public void Add()
         {
-            var recipe = new Recipe();
+            var recipe = new Recipe();            
             recipeBook.Add(recipe);
         }
 

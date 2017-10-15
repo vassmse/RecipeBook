@@ -11,6 +11,8 @@ namespace RecipeBookBLL.Models
 {
     public class RecipeManager : IRecipeManager
     {
+        const string ConnectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=RecipeDataBase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
         public RecipeManager()
         {           
 
@@ -19,32 +21,7 @@ namespace RecipeBookBLL.Models
         public List<Recipe> GetRecipes()
         {
             //TODO: get recipes from DB
-            var flour = new Ingredient { Quantity = 0.5, Unit = IngredientUnit.kg };
-
-            try
-            {
-                var builder = new DbContextOptionsBuilder<RecipeBookContext>();
-
-                builder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=RecipeDataBase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-
-
-                using (var dbContext = new RecipeBookContext(builder.Options))
-                {
-                    dbContext.Ingredients.Attach(flour);
-                    dbContext.SaveChanges();
-
-                    //var query = from b in dbContext.Ingredients
-                    //            orderby b.
-                    //            select b;
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-
-
+            var flour = new Ingredient { Quantity = 0.5, Unit = IngredientUnit.kg };                        
             var water = new Ingredient { Id = 1, Quantity = 0.2, Unit = IngredientUnit.liter };
 
             var ingredients = new List<Ingredient>
@@ -63,12 +40,33 @@ namespace RecipeBookBLL.Models
 
         public void AddRecipe(Recipe recipe)
         {
-            //TODO
+            try
+            {
+                var builder = new DbContextOptionsBuilder<RecipeBookContext>();
+                builder.UseSqlServer(ConnectionString);
+
+                using (var dbContext = new RecipeBookContext(builder.Options))
+                {
+                    dbContext.Recipes.Add(recipe);
+                    dbContext.SaveChanges();
+                }
+            }
+
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         public void DeleteRecipe(Recipe recipe)
         {
-            //TODO: delete recipe from DB
+            throw new NotImplementedException();
+        }
+
+        public void ModifyRecipe(Recipe recipe)
+        {
+            throw new NotImplementedException();
         }
     }
 }
