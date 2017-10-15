@@ -10,7 +10,7 @@ namespace RecipeBookInterfaces.Models.Tables
         [Key]
         public int Id { get; set; }
 
-        public Materal Material { get; set; }
+        public RawMaterial Material { get; set; }
 
         public double Quantity { get; set; }
 

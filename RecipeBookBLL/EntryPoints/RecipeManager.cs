@@ -33,7 +33,9 @@ namespace RecipeBookBLL.Models
                     dbContext.Ingredients.Attach(flour);
                     dbContext.SaveChanges();
 
-                    var tmp = dbContext.Ingredients.FromSql("SELECT * FROM Ingredients");
+                    //var query = from b in dbContext.Ingredients
+                    //            orderby b.
+                    //            select b;
                 }
             }
             catch (Exception e)

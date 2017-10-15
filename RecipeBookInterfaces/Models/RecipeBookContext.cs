@@ -18,6 +18,13 @@ namespace RecipeBookInterfaces.Models
 
         public DbSet<Ingredient> Ingredients { get; set; }
 
+        public DbSet<RawMaterial> RawMateral { get; set; }
+
+        public DbSet<MaterialType> MaterialType { get; set; }
+
+        public DbSet<RecipeType> RecipeType { get; set; }
+
+
 
     }
 }
