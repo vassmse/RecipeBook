@@ -1,5 +1,6 @@
 ﻿using RecipeBookInterfaces.EntryPoints;
 using RecipeBookInterfaces.Models;
+using RecipeBookInterfaces.Models.Tables;
 using System;
 using System.Collections.Generic;
 using System.Linq;

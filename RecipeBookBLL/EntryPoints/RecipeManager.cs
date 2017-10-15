@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using RecipeBookInterfaces.EntryPoints;
 using RecipeBookInterfaces.Models;
+using RecipeBookInterfaces.Models.Tables;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,30 +11,29 @@ namespace RecipeBookBLL.Models
 {
     public class RecipeManager : IRecipeManager
     {
-        // RecipeContext DbContext = new RecipeContext();
-
         public RecipeManager()
-        {
-            
+        {           
 
         }
 
         public List<Recipe> GetRecipes()
         {
             //TODO: get recipes from DB
-            //var flour = new Ingredient { Name = "liszt", Quantity = 0.5, Unit = IngredientUnit.kg };
-            var flour = new Ingredient { Name = "liszt", Quantity = 0.5 };
+            var flour = new Ingredient { Quantity = 0.5, Unit = IngredientUnit.kg };
 
             try
             {
                 var builder = new DbContextOptionsBuilder<RecipeBookContext>();
-                builder.UseSqlServer(
-                    "Server=(localdb)\\mssqllocaldb;Database=config;Trusted_Connection=True;MultipleActiveResultSets=true");
-                
+
+                builder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=RecipeDataBase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+
+
                 using (var dbContext = new RecipeBookContext(builder.Options))
                 {
-                    dbContext.Ingredients.Add(flour);
+                    dbContext.Ingredients.Attach(flour);
                     dbContext.SaveChanges();
+
+                    var tmp = dbContext.Ingredients.FromSql("SELECT * FROM Ingredients");
                 }
             }
             catch (Exception e)
@@ -43,8 +43,8 @@ namespace RecipeBookBLL.Models
             }
 
 
-            //var water = new Ingredient { Name = "víz", Quantity = 0.2, Unit = IngredientUnit.liter };
-            var water = new Ingredient { Name = "víz", Quantity = 0.2 };
+            var water = new Ingredient { Id = 1, Quantity = 0.2, Unit = IngredientUnit.liter };
+
             var ingredients = new List<Ingredient>
             {
                 flour,

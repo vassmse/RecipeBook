@@ -9,6 +9,7 @@ using Microsoft.Toolkit.Uwp;
 using RecipeBookInterfaces.Models;
 using RecipeBook.Models;
 using RecipeBookBLL.Models;
+using RecipeBookInterfaces.Models.Tables;
 
 namespace RecipeBook.ViewModels
 {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RecipeBookInterfaces.Models.Tables;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
