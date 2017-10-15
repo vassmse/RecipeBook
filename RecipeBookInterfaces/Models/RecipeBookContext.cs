@@ -5,15 +5,18 @@ using System.Text;
 
 namespace RecipeBookInterfaces.Models
 {
-    public class RecipeContext: DbContext
+    public class RecipeBookContext : DbContext
     {
-        public RecipeContext(): base()
+        public RecipeBookContext(DbContextOptions<RecipeBookContext> options) : base(options)
         {
-
+           
         }
+
 
         public DbSet<Recipe> Recipes { get; set; }
 
         public DbSet<Ingredient> Ingredients { get; set; }
+
+
     }
 }
