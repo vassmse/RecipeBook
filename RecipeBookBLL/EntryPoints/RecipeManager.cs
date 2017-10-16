@@ -11,7 +11,7 @@ namespace RecipeBookBLL.Models
 {
     public class RecipeManager : IRecipeManager
     {
-        const string ConnectionString = "Data Source=(localdb)\\MSSQLLocalDB;Database=RecipeDb;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        const string ConnectionString = "Data Source=(localdb)\\MSSQLLocalDB;Database=RecipeDb;Initial Catalog=master;Integrated Security=True;Connect Timeout=130;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
         public RecipeManager()
         {           
@@ -49,7 +49,7 @@ namespace RecipeBookBLL.Models
                 {
                     dbContext.Recipes.Attach(recipe);
                     dbContext.SaveChanges();
-
+                    
                     foreach (var rec in dbContext.Recipes)
                     {
                         Console.WriteLine(" - {0}", rec.Name);
