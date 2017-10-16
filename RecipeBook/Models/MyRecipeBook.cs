@@ -18,10 +18,10 @@ namespace RecipeBook.Models
         public MyRecipeBook(IRecipeManager businessLayer)
         {
             this.BusinessLayer = businessLayer;
-            Recipes = this.BusinessLayer.GetRecipes();
+            Recipes = this.BusinessLayer.GetRecipes();            
         }
 
-        public void Add(Recipe recipe)
+        public void AddRecipe(Recipe recipe)
         {
             if (!Recipes.Contains(recipe))
             {
@@ -30,12 +30,12 @@ namespace RecipeBook.Models
             }
         }
 
-        public void Delete(Recipe recipe)
+        public void DeleteRecipe(Recipe recipe)
         {
             throw new NotImplementedException();
         }
 
-        public void Modify(Recipe recipe)
+        public void ModifyRecipe(Recipe recipe)
         {
             throw new NotImplementedException();
         }

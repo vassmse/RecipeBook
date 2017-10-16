@@ -38,16 +38,18 @@ namespace RecipeBook.ViewModels
         {
             _businessLayer = new RecipeManager();
             RecipeBook = new MyRecipeBook(_businessLayer);
+
+            AddRecipe();
         }
 
         #endregion
 
         #region Public methods
 
-        public void Add()
+        public void AddRecipe()
         {
             var recipe = new Recipe();            
-            recipeBook.Add(recipe);
+            recipeBook.AddRecipe(recipe);
         }
 
         #endregion

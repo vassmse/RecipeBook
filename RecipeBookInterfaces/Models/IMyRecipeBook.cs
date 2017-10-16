@@ -7,10 +7,10 @@ namespace RecipeBookInterfaces.Models
 {
     public interface IMyRecipeBook
     {
-        void Add(Recipe recipe);
+        void AddRecipe(Recipe recipe);
 
-        void Delete(Recipe recipe);
+        void DeleteRecipe(Recipe recipe);
 
-        void Modify(Recipe recipe);
+        void ModifyRecipe(Recipe recipe);
     }
 }
