@@ -52,7 +52,7 @@ namespace RecipeBookBLL.Models
                     
                     foreach (var rec in dbContext.Recipes)
                     {
-                        Console.WriteLine(" - {0}", rec.Name);
+                        Console.WriteLine(rec.Name);
                     }
                 }
             }
