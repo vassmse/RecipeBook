@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeBookUI", "RecipeBook\RecipeBookUI.csproj", "{C2E4FC72-9ABC-4BFA-ADD8-DC4631E5AE3E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeBookInterfaces", "RecipeBookInterfaces\RecipeBookInterfaces.csproj", "{AC0E2F21-4D02-460C-873A-383543252880}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeBookInterfaces", "RecipeBookInterfaces\RecipeBookInterfaces.csproj", "{AC0E2F21-4D02-460C-873A-383543252880}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeBookBLL", "RecipeBookBLL\RecipeBookBLL.csproj", "{3FA21F92-7B6A-405C-AAF1-0128FF5E2B74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeBookBLL", "RecipeBookBLL\RecipeBookBLL.csproj", "{3FA21F92-7B6A-405C-AAF1-0128FF5E2B74}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
