@@ -29,7 +29,7 @@ namespace RecipeBook.Views
         {
             NavigationCacheMode = NavigationCacheMode.Required;
             DataContext = ViewModel;
-            this.InitializeComponent();
+            InitializeComponent();
         }
     }
 }

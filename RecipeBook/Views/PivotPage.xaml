@@ -9,22 +9,23 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Pivot x:Uid="PivotPage">
-            <PivotItem x:Uid="PivotItem_Main">
+
+            <PivotItem Header="Főmenü">
                 <Frame>
                     <views:MainPage/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_List">
+            <PivotItem Header="Receptek">
                 <Frame>
                     <views:RecipeList/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_Detailed">
+            <PivotItem Header="Részletek">
                 <Frame>
                     <views:RecipeDetailed/>
                 </Frame>
             </PivotItem>
-            <!--TODO: fill pivotitems with view elements-->
         </Pivot>
     </Grid>
+
 </Page>
