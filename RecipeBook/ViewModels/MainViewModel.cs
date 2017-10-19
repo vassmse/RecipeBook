@@ -30,8 +30,6 @@ namespace RecipeBook.ViewModels
         {
             _businessLayer = new RecipeManager();
             RecipeBook = new MyRecipeBook(_businessLayer);
-
-            AddRecipe();
         }
 
         #endregion

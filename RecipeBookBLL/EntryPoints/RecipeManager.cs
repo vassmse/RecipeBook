@@ -32,9 +32,9 @@ namespace RecipeBookBLL.Models
 
             return new List<Recipe>()
                 {
-                    new Recipe { Name="Borsóleves", Description="Meg kell főzni", Ingredients=ingredients},
-                    new Recipe { Name="Lasagna", Description="Meg kell sütni", Ingredients=ingredients},
-                    new Recipe { Name="Pizza" , Description="Meg kell sütni", Ingredients=ingredients}
+                    new Recipe { Name="Borsóleves", Description="Meg kell főzni", PreparationTime=20, Ingredients=ingredients},
+                    new Recipe { Name="Lasagna", Description="Meg kell sütni", PreparationTime=140, Ingredients=ingredients},
+                    new Recipe { Name="Pizza" , Description="Meg kell sütni", PreparationTime=180, Ingredients=ingredients}
                 };
         }
 
@@ -49,7 +49,7 @@ namespace RecipeBookBLL.Models
             //    {
             //        dbContext.Recipes.Attach(recipe);
             //        dbContext.SaveChanges();
-                    
+
             //        foreach (var rec in dbContext.Recipes)
             //        {
             //            Console.WriteLine(rec.Name);
