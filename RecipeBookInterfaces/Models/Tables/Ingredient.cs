@@ -14,7 +14,7 @@ namespace RecipeBookInterfaces.Models.Tables
 
         public double Quantity { get; set; }
 
-         public IngredientUnit Unit { get; set; }
+         public string Unit { get; set; }
 
         public Ingredient()
         {

@@ -11,8 +11,6 @@ namespace RecipeBookBLL.Models
 {
     public class RecipeManager : IRecipeManager
     {
-        const string ConnectionString = "Data Source=(localdb)\\MSSQLLocalDB;Database=RecipeDb;Initial Catalog=master;Integrated Security=True;Connect Timeout=130;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-
         public RecipeManager()
         {           
 
@@ -21,14 +19,29 @@ namespace RecipeBookBLL.Models
         public List<Recipe> GetRecipes()
         {
             //TODO: get recipes from DB
-            var flour = new Ingredient { Quantity = 0.5, Unit = IngredientUnit.kg };                        
-            var water = new Ingredient { Id = 1, Quantity = 0.2, Unit = IngredientUnit.liter };
+            var flour = new Ingredient { Quantity = 0.5, Unit = "kg" };                        
+            var water = new Ingredient { Id = 1, Quantity = 0.2, Unit = "liter" };
 
             var ingredients = new List<Ingredient>
             {
                 flour,
                 water
             };
+
+            try
+            {
+                using (var db = new RecipeBookContext())
+                {
+                    var tmp = db.RawMaterialType;
+
+                }
+            }
+
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
 
             return new List<Recipe>()
                 {
@@ -42,18 +55,11 @@ namespace RecipeBookBLL.Models
         {
             //try
             //{
-            //    var builder = new DbContextOptionsBuilder<RecipeBookContext>();
-            //    builder.UseSqlServer(ConnectionString);
-
-            //    using (var dbContext = new RecipeBookContext(builder.Options))
+            //    using (var db = new RecipeBookContext())
             //    {
-            //        dbContext.Recipes.Attach(recipe);
-            //        dbContext.SaveChanges();
-
-            //        foreach (var rec in dbContext.Recipes)
-            //        {
-            //            Console.WriteLine(rec.Name);
-            //        }
+            //        var recipe = new Rec { Url = "http://sample.com" };
+            //        db.Blogs.Add(blog);
+            //        db.SaveChanges();
             //    }
             //}
 

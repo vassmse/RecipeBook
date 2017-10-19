@@ -5,7 +5,7 @@ using System.Text;
 
 namespace RecipeBookInterfaces.Models.Tables
 {
-    public class MaterialType
+    public class RawMaterialType
     {
         [Key]
         public int Id { get; set; }

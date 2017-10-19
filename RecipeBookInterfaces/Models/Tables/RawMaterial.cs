@@ -12,6 +12,6 @@ namespace RecipeBookInterfaces.Models.Tables
 
         public string Name { get; set; }
 
-        public MaterialType Type { get; set; }
+        public RawMaterialType Type { get; set; }
     }
 }
