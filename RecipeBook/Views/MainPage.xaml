@@ -24,9 +24,7 @@
         <Grid 
             Grid.Row="1" 
             Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-            <TextBlock Text="Test" />
-            <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
-                Place your content here.-->
+
         </Grid>
     </Grid>
 </Page>

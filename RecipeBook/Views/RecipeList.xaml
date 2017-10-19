@@ -16,22 +16,46 @@
         <TextBlock
             x:Name="TitlePage"
             x:Uid="Tabbed_Pivot"
-            Text="Navigation Item 1"
+            Text="Receptek"
             Style="{StaticResource PageTitleStyle}"
             Margin="12,0,12,7"/>
 
-        <Pivot Grid.Row="1">
-            <PivotItem x:Uid="Tabbed_PivotItem1">
-                <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-                    <!--
-                    The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
-                    Place your content here.
-                    -->
+        <Image Source="Images/food2.jpg" Height="80" Grid.Column="0"/>
 
+
+        <Pivot Grid.Row="1">
+            <PivotItem Header="Levesek">
+                <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+                    <Grid>
+                        <ItemsControl ItemsSource="{Binding RecipeBook.Recipes}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Margin="10" Background="LightSteelBlue">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="100" />
+                                            <ColumnDefinition Width="200" />
+                                            <ColumnDefinition Width="200" />
+                                        </Grid.ColumnDefinitions>
+                                        <Border BorderThickness="1">
+                                        <Image Source="../Images/food2.jpg" Height="80" Stretch="Fill" Grid.Column="0"/>
+                                        </Border>
+                                        <TextBlock Text="{Binding Name}" Grid.Column="1"/>
+                                        <TextBlock Text="{Binding PreparationTime}" Grid.Column="2"/>
+
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Grid>
                 </Grid>
             </PivotItem>
 
-            <PivotItem x:Uid="Tabbed_PivotItem2">
+            <PivotItem Header="Főételek">
                 <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
                     <!--
                     The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
