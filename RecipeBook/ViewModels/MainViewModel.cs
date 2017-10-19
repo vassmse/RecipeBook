@@ -2,6 +2,10 @@
 using RecipeBook.Models;
 using RecipeBookBLL.Models;
 using RecipeBookInterfaces.Models.Tables;
+using System.Threading.Tasks;
+using Microsoft.Toolkit.Uwp.UI.Controls;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace RecipeBook.ViewModels
 {
@@ -22,6 +26,16 @@ namespace RecipeBook.ViewModels
             }
         }
 
+        //TODO: Átírni
+        private Recipe selectedRecipe;
+
+        public Recipe SelectedRecipe
+        {
+            get { return selectedRecipe; }
+            set { selectedRecipe = value; }
+        }
+
+
         #endregion
 
         #region Constructor
@@ -40,6 +54,7 @@ namespace RecipeBook.ViewModels
         {
             var recipe = new Recipe();            
             recipeBook.AddRecipe(recipe);
+            SelectedRecipe = RecipeBook.Recipes.First();
         }
 
         #endregion
