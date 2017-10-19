@@ -40,28 +40,28 @@ namespace RecipeBookBLL.Models
 
         public void AddRecipe(Recipe recipe)
         {
-            try
-            {
-                var builder = new DbContextOptionsBuilder<RecipeBookContext>();
-                builder.UseSqlServer(ConnectionString);
+            //try
+            //{
+            //    var builder = new DbContextOptionsBuilder<RecipeBookContext>();
+            //    builder.UseSqlServer(ConnectionString);
 
-                using (var dbContext = new RecipeBookContext(builder.Options))
-                {
-                    dbContext.Recipes.Attach(recipe);
-                    dbContext.SaveChanges();
+            //    using (var dbContext = new RecipeBookContext(builder.Options))
+            //    {
+            //        dbContext.Recipes.Attach(recipe);
+            //        dbContext.SaveChanges();
                     
-                    foreach (var rec in dbContext.Recipes)
-                    {
-                        Console.WriteLine(rec.Name);
-                    }
-                }
-            }
+            //        foreach (var rec in dbContext.Recipes)
+            //        {
+            //            Console.WriteLine(rec.Name);
+            //        }
+            //    }
+            //}
 
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine(e);
+            //    throw;
+            //}
         }
 
         public void DeleteRecipe(Recipe recipe)
