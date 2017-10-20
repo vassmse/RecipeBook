@@ -10,23 +10,23 @@
     Style="{StaticResource PageStyle}"
     mc:Ignorable="d">
 
-    <Page.Resources>
-        <DataTemplate x:Key="ItemTemplate" x:DataType="model:Recipe">
+    <!--Page.Resources>
+        <DataTemplate x:Key="ItemTemplate" x:DataType="model:SampleOrder">
             <Grid Height="64" Padding="0,8">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <FontIcon Grid.Column="0" Tag="Icon" FontSize="40" Glyph="&#xE114;" VerticalAlignment="Center" />
+                <FontIcon Grid.Column="0" Tag="{x:Bind HashIdentIcon}" FontSize="40" Glyph="{x:Bind SymbolAsChar}" VerticalAlignment="Center" />
                 <StackPanel Grid.Column="1" Margin="12,0,0,0" VerticalAlignment="Center">
-                    <TextBlock Text="Name" Tag="HashIdentTitle" Style="{ThemeResource ListTitleStyle}"/>
-                    <TextBlock Text="Description" Style="{StaticResource ListSubTitleStyle}"/>
+                    <TextBlock Text="{x:Bind Company}" Tag="{x:Bind HashIdentTitle}" Style="{ThemeResource ListTitleStyle}"/>
+                    <TextBlock Text="{x:Bind Status}" Style="{StaticResource ListSubTitleStyle}"/>
                 </StackPanel>
             </Grid>
         </DataTemplate>
 
         <DataTemplate x:Key="DetailsTemplate">
-            <views:RecipeDetailedControl MasterMenuItem="{Binding}"/>
+            <views:MasterDetailDetailControl MasterMenuItem="{Binding}"/>
         </DataTemplate>
 
         <DataTemplate x:Key="NoSelectionContentTemplate">
@@ -42,19 +42,19 @@
         </Grid.RowDefinitions>
 
         <TextBlock
-            Text="MasterDetail_Title"
-            Name="TitlePage"
+            x:Uid="MasterDetail_Title"
+            x:Name="TitlePage"
             Margin="12,0,12,7"
             Style="{StaticResource PageTitleStyle}" />
 
-        <!--<controls:MasterDetailsView
+        <controls:MasterDetailsView
             Grid.Row="1"
-            x:Name="MasterDetailsViewControl"            
-            ItemsSource="{x:Bind  RecipeBook, Mode=OneWay}"
-            SelectedItem="{x:Bind SelectedRecipe, Mode=OneWay}"
+            x:Name="MasterDetailsViewControl"
+            ItemsSource="{x:Bind ViewModel.SampleItems, Mode=OneWay}"
+            SelectedItem="{x:Bind ViewModel.Selected, Mode=OneWay}"
             ItemTemplate="{StaticResource ItemTemplate}"
             DetailsTemplate="{StaticResource DetailsTemplate}"
             NoSelectionContentTemplate="{StaticResource NoSelectionContentTemplate}"
-            BorderBrush="Transparent" />-->
-    </Grid>
+            BorderBrush="Transparent" />
+    </Grid>-->      
 </Page>

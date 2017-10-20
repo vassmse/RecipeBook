@@ -25,12 +25,10 @@ namespace RecipeBook.Views
 
     public sealed partial class MainPage : Page
     {
-        public MainViewModel ViewModel { get; } = new MainViewModel();
-
         public MainPage()
         {
             this.InitializeComponent();
-            DataContext = ViewModel;
+            DataContext = new MainViewModel();
         }
 
     }

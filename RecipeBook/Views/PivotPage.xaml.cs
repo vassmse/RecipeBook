@@ -23,12 +23,10 @@ namespace RecipeBook.Views
     /// </summary>
     public sealed partial class PivotPage : Page
     {
-        public MainViewModel ViewModel { get; } = new MainViewModel();
-
         public PivotPage()
         {
             NavigationCacheMode = NavigationCacheMode.Required;
-            DataContext = ViewModel;
+            DataContext = new MainViewModel();
             InitializeComponent();
         }
     }
