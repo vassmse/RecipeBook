@@ -17,11 +17,10 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <!--<FontIcon Grid.Column="0" Tag="{x:Bind HashIdentIcon}" FontSize="40" Glyph="{x:Bind SymbolAsChar}" VerticalAlignment="Center" />-->
+                <FontIcon Grid.Column="0" Tag="Icon" FontSize="40" Glyph="&#xE114;" VerticalAlignment="Center" />
                 <StackPanel Grid.Column="1" Margin="12,0,0,0" VerticalAlignment="Center">
-                    <!--<TextBlock Text="{x:Bind Name}" Tag="{x:Bind HashIdentTitle}" Style="{ThemeResource ListTitleStyle}"/>-->
-                    <TextBlock Text="{x:Bind Name}" Style="{ThemeResource ListTitleStyle}"/>
-                    <TextBlock Text="{x:Bind Description}" Style="{StaticResource ListSubTitleStyle}"/>
+                    <TextBlock Text="Name" Tag="HashIdentTitle" Style="{ThemeResource ListTitleStyle}"/>
+                    <TextBlock Text="Description" Style="{StaticResource ListSubTitleStyle}"/>
                 </StackPanel>
             </Grid>
         </DataTemplate>
@@ -43,8 +42,8 @@
         </Grid.RowDefinitions>
 
         <TextBlock
-            x:Uid="MasterDetail_Title"
-            x:Name="TitlePage"
+            Text="MasterDetail_Title"
+            Name="TitlePage"
             Margin="12,0,12,7"
             Style="{StaticResource PageTitleStyle}" />
 

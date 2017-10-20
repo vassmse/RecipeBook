@@ -25,8 +25,7 @@ namespace RecipeBook.ViewModels
                 RaisePropertyChanged("RecipeBook");
             }
         }
-
-        //TODO: Átírni
+        
         private Recipe selectedRecipe;
 
         public Recipe SelectedRecipe
@@ -34,7 +33,6 @@ namespace RecipeBook.ViewModels
             get { return selectedRecipe; }
             set { selectedRecipe = value; }
         }
-
 
         #endregion
 

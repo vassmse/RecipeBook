@@ -9,14 +9,27 @@ namespace RecipeBook.Models
     public class MyRecipeBook : IMyRecipeBook
     {
         public List<Recipe> Recipes { get; set; }
-
+                
         public IRecipeManager BusinessLayer { get; set; }
+        
+        public List<Recipe> Soups
+        {
+            get { return Recipes.FindAll(r => r.Type.Name == "Leves"); }
+        }
+
+        public List<Recipe> MainCourses
+        {
+            get { return Recipes.FindAll(r => r.Type.Name == "Főétel"); }
+        }
+
 
         public MyRecipeBook(IRecipeManager businessLayer)
         {
-            this.BusinessLayer = businessLayer;
-            Recipes = this.BusinessLayer.GetRecipes();            
+            BusinessLayer = businessLayer;
+            Recipes = BusinessLayer.GetRecipes();
         }
+
+        #region BL methods
 
         public void AddRecipe(Recipe recipe)
         {
@@ -36,5 +49,8 @@ namespace RecipeBook.Models
         {
             throw new NotImplementedException();
         }
+
+        #endregion
+
     }
 }

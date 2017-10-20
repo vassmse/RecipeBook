@@ -5,6 +5,7 @@ using RecipeBookInterfaces.Models;
 using RecipeBookInterfaces.Models.Tables;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace RecipeBookBLL.Models
@@ -12,62 +13,53 @@ namespace RecipeBookBLL.Models
     public class RecipeManager : IRecipeManager
     {
         public RecipeManager()
-        {           
+        {
 
         }
 
         public List<Recipe> GetRecipes()
         {
-            //TODO: get recipes from DB
-            var flour = new Ingredient { Quantity = 0.5, Unit = "kg" };                        
-            var water = new Ingredient { Id = 1, Quantity = 0.2, Unit = "liter" };
+            var rawFlour = new RawMaterial { Id = 1, Name = "liszt" };
+            var rawWater = new RawMaterial { Id = 2, Name = "víz" };
+            var rawSalt = new RawMaterial { Id = 3, Name = "só" };
+            var rawPea = new RawMaterial { Id = 4, Name = "borsó" };
 
-            var ingredients = new List<Ingredient>
+            var flour = new Ingredient { Id = 1, Material = rawFlour, Quantity = 0.5, Unit = "kg" };
+            var water = new Ingredient { Id = 2, Material = rawWater, Quantity = 0.2, Unit = "liter" };
+            var salt = new Ingredient { Id = 3, Material = rawSalt, Quantity = 2, Unit = "csipet" };
+            var pea = new Ingredient { Id = 4, Material = rawSalt, Quantity = 1, Unit = "kg" };
+
+            var lasagnaIngredients = new List<Ingredient>
             {
                 flour,
-                water
+                water,
+                salt
             };
 
-            try
+            var peaSoupIngredients = new List<Ingredient>
             {
-                using (var db = new RecipeBookContext())
-                {
-                    var tmp = db.RawMaterialType;
+                flour,
+                water,
+                salt,
+                pea
+            };
 
-                }
-            }
-
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-
+            var soup = new RecipeType { Id = 1, Name = "Leves" };
+            var mainCourse = new RecipeType { Id = 2, Name = "Főétel" };
+            
             return new List<Recipe>()
                 {
-                    new Recipe { Name="Borsóleves", Description="Meg kell főzni", PreparationTime=20, Ingredients=ingredients},
-                    new Recipe { Name="Lasagna", Description="Meg kell sütni", PreparationTime=140, Ingredients=ingredients},
-                    new Recipe { Name="Pizza" , Description="Meg kell sütni", PreparationTime=180, Ingredients=ingredients}
+                    new Recipe {Id=1, Name="Borsóleves", Description="Meg kell főzni", PreparationTime=30, Ingredients=peaSoupIngredients, Type=soup},
+                    new Recipe {Id=2, Name="Hagymaleves", Description="Meg kell főzni", PreparationTime=20, Ingredients=lasagnaIngredients, Type=soup},
+                    new Recipe {Id=3, Name="Lasagna", Description="Meg kell sütni", PreparationTime=140, Ingredients=lasagnaIngredients, Type=mainCourse},
+                    new Recipe {Id=4, Name="Pizza" , Description="Meg kell sütni", PreparationTime=180, Ingredients=lasagnaIngredients, Type=mainCourse},
+                    new Recipe {Id=5, Name="Rakottkrumpli" , Description="Meg kell sütni", PreparationTime=200, Ingredients=lasagnaIngredients, Type=mainCourse}
                 };
         }
 
         public void AddRecipe(Recipe recipe)
         {
-            //try
-            //{
-            //    using (var db = new RecipeBookContext())
-            //    {
-            //        var recipe = new Rec { Url = "http://sample.com" };
-            //        db.Blogs.Add(blog);
-            //        db.SaveChanges();
-            //    }
-            //}
-
-            //catch (Exception e)
-            //{
-            //    Console.WriteLine(e);
-            //    throw;
-            //}
+            throw new NotImplementedException();
         }
 
         public void DeleteRecipe(Recipe recipe)

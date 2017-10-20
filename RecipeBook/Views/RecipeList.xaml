@@ -25,43 +25,58 @@
 
         <Pivot Grid.Row="1">
             <PivotItem Header="Levesek">
-                <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-                    <Grid>
-                        <ItemsControl ItemsSource="{Binding RecipeBook.Recipes}">
-                            <ItemsControl.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <StackPanel />
-                                </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <Grid Margin="10" Background="LightSteelBlue">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="100" />
-                                            <ColumnDefinition Width="200" />
-                                            <ColumnDefinition Width="200" />
-                                        </Grid.ColumnDefinitions>
-                                        <Border BorderThickness="1">
+                <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}" Margin="0 0 0 20">
+                    <ItemsControl ItemsSource="{Binding RecipeBook.Soups}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Margin="10" Background="Gainsboro">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="200" />
+                                        <ColumnDefinition Width="200" />
+                                    </Grid.ColumnDefinitions>
+                                    <Border BorderThickness="1">
                                         <Image Source="../Images/food2.jpg" Height="80" Stretch="Fill" Grid.Column="0"/>
-                                        </Border>
-                                        <TextBlock Text="{Binding Name}" Grid.Column="1"/>
-                                        <TextBlock Text="{Binding PreparationTime}" Grid.Column="2"/>
-
-                                    </Grid>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
-                    </Grid>
+                                    </Border>
+                                    <TextBlock Text="{Binding Name}" Grid.Column="1"/>
+                                    <TextBlock Text="{Binding PreparationTime}" Grid.Column="2"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
                 </Grid>
             </PivotItem>
 
             <PivotItem Header="Főételek">
-                <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-                    <!--
-                    The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
-                    Place your content here.
-                    -->
-
+                <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}" Margin="0 0 0 20">
+                    <ItemsControl ItemsSource="{Binding RecipeBook.MainCourses}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Margin="10" Background="Gainsboro">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="200" />
+                                        <ColumnDefinition Width="200" />
+                                    </Grid.ColumnDefinitions>
+                                    <Border BorderThickness="1">
+                                        <Image Source="../Images/food2.jpg" Height="80" Stretch="Fill" Grid.Column="0"/>
+                                    </Border>
+                                    <TextBlock Text="{Binding Name}" Grid.Column="1"/>
+                                    <TextBlock Text="{Binding PreparationTime}" Grid.Column="2"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
                 </Grid>
             </PivotItem>
         </Pivot>
