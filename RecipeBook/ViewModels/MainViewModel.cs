@@ -42,6 +42,7 @@ namespace RecipeBook.ViewModels
         {
             _businessLayer = new RecipeManager();
             RecipeBook = new MyRecipeBook(_businessLayer);
+            SelectedRecipe = RecipeBook.Recipes.First();
         }
 
         #endregion

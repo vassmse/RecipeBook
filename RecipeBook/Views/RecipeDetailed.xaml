@@ -6,31 +6,31 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:views="using:RecipeBook.Views"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    xmlns:model="using:RecipeBookInterfaces.Models.Tables"
+    xmlns:model="clr-namespace:RecipeBookInterfaces.Models.Tables;assembly=RecipeBookInterfaces"
     Style="{StaticResource PageStyle}"
     mc:Ignorable="d">
 
-    <!--Page.Resources>
-        <DataTemplate x:Key="ItemTemplate" x:DataType="model:SampleOrder">
+    <Page.Resources>
+        <!--<DataTemplate x:Key="ItemTemplate" x:DataType="model:Recipe">
             <Grid Height="64" Padding="0,8">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <FontIcon Grid.Column="0" Tag="{x:Bind HashIdentIcon}" FontSize="40" Glyph="{x:Bind SymbolAsChar}" VerticalAlignment="Center" />
+                <FontIcon Grid.Column="0" Tag="Tag" FontSize="40" Glyph="G" VerticalAlignment="Center" />
                 <StackPanel Grid.Column="1" Margin="12,0,0,0" VerticalAlignment="Center">
-                    <TextBlock Text="{x:Bind Company}" Tag="{x:Bind HashIdentTitle}" Style="{ThemeResource ListTitleStyle}"/>
-                    <TextBlock Text="{x:Bind Status}" Style="{StaticResource ListSubTitleStyle}"/>
+                    <TextBlock Text="{x:Bind Name}" Tag="Tag" Style="{ThemeResource ListTitleStyle}"/>
+                    <TextBlock Text="{x:Bind PreparationTime}" Style="{StaticResource ListSubTitleStyle}"/>
                 </StackPanel>
             </Grid>
-        </DataTemplate>
+        </DataTemplate>-->
 
         <DataTemplate x:Key="DetailsTemplate">
-            <views:MasterDetailDetailControl MasterMenuItem="{Binding}"/>
+            <views:RecipeDetailedControl MasterMenuItem="{Binding}"/>
         </DataTemplate>
 
         <DataTemplate x:Key="NoSelectionContentTemplate">
-            <TextBlock x:Uid="MasterDetail_NoSelection" Style="{StaticResource ListNoSelectionTextStyle}" />
+            <TextBlock Text="MasterDetail_NoSelection" Style="{StaticResource ListNoSelectionTextStyle}" />
         </DataTemplate>
     </Page.Resources>
 
@@ -50,11 +50,11 @@
         <controls:MasterDetailsView
             Grid.Row="1"
             x:Name="MasterDetailsViewControl"
-            ItemsSource="{x:Bind ViewModel.SampleItems, Mode=OneWay}"
-            SelectedItem="{x:Bind ViewModel.Selected, Mode=OneWay}"
-            ItemTemplate="{StaticResource ItemTemplate}"
+            ItemsSource="{x:Bind ViewModel.RecipeBook.Recipes, Mode=OneWay}"
+            SelectedItem="{x:Bind ViewModel.SelectedRecipe, Mode=OneWay}"
+            
             DetailsTemplate="{StaticResource DetailsTemplate}"
             NoSelectionContentTemplate="{StaticResource NoSelectionContentTemplate}"
             BorderBrush="Transparent" />
-    </Grid>-->      
+    </Grid>
 </Page>
