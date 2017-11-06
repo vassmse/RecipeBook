@@ -11,19 +11,22 @@
     mc:Ignorable="d">
 
     <Page.Resources>
-        <!--<DataTemplate x:Key="ItemTemplate" x:DataType="model:Recipe">
-            <Grid Height="64" Padding="0,8">
+        <!--<DataTemplate x:Key="ItemTemplate" x:DataType="model:Recipe">-->
+            <DataTemplate x:Key="ItemTemplate">
+                <Grid Height="64" Padding="0,8">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <FontIcon Grid.Column="0" Tag="Tag" FontSize="40" Glyph="G" VerticalAlignment="Center" />
                 <StackPanel Grid.Column="1" Margin="12,0,0,0" VerticalAlignment="Center">
-                    <TextBlock Text="{x:Bind Name}" Tag="Tag" Style="{ThemeResource ListTitleStyle}"/>
-                    <TextBlock Text="{x:Bind PreparationTime}" Style="{StaticResource ListSubTitleStyle}"/>
+                    <!--<TextBlock Text="{x:Bind Name}" Tag="Tag" Style="{ThemeResource ListTitleStyle}"/>
+                    <TextBlock Text="{x:Bind PreparationTime}" Style="{StaticResource ListSubTitleStyle}"/>-->
+                    <TextBlock Text="Name" Tag="Tag" Style="{ThemeResource ListTitleStyle}"/>
+                    <TextBlock Text="PrepTime" Style="{StaticResource ListSubTitleStyle}"/>
                 </StackPanel>
             </Grid>
-        </DataTemplate>-->
+        </DataTemplate>
 
         <DataTemplate x:Key="DetailsTemplate">
             <views:RecipeDetailedControl MasterMenuItem="{Binding}"/>
@@ -35,7 +38,6 @@
     </Page.Resources>
 
     <Grid>
-
         <Grid.RowDefinitions>
             <RowDefinition x:Name="TitleRow" Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -52,7 +54,7 @@
             x:Name="MasterDetailsViewControl"
             ItemsSource="{x:Bind ViewModel.RecipeBook.Recipes, Mode=OneWay}"
             SelectedItem="{x:Bind ViewModel.SelectedRecipe, Mode=OneWay}"
-            
+            ItemTemplate="{StaticResource ItemTemplate}"
             DetailsTemplate="{StaticResource DetailsTemplate}"
             NoSelectionContentTemplate="{StaticResource NoSelectionContentTemplate}"
             BorderBrush="Transparent" />
