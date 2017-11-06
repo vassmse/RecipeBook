@@ -30,7 +30,7 @@
         </DataTemplate>
 
         <DataTemplate x:Key="NoSelectionContentTemplate">
-            <TextBlock Text="MasterDetail_NoSelection" Style="{StaticResource ListNoSelectionTextStyle}" />
+            <TextBlock Text="Nincs recept kiválasztva." Style="{StaticResource ListNoSelectionTextStyle}" />
         </DataTemplate>
     </Page.Resources>
 
@@ -42,7 +42,7 @@
         </Grid.RowDefinitions>
 
         <TextBlock
-            x:Uid="MasterDetail_Title"
+            Text="Leves"
             x:Name="TitlePage"
             Margin="12,0,12,7"
             Style="{StaticResource PageTitleStyle}" />

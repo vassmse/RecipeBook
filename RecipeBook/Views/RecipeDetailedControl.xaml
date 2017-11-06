@@ -21,14 +21,14 @@
                     Style="{StaticResource SubheaderTextBlockStyle}" />
             </StackPanel>-->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,8,0,0">
-                <FontIcon
+                <!--<FontIcon
                     FontSize="40"
                     Glyph="A"
                     VerticalAlignment="Center"
-                    HorizontalAlignment="Center"/>
+                    HorizontalAlignment="Center"/>-->
                 <TextBlock
                     Margin="12,0,0,0"
-                    Text="Cim"
+                    Text="{x:Bind MasterMenuItem.Name, Mode=OneWay}"
                     Style="{StaticResource SubheaderTextBlockStyle}" />
             </StackPanel>
             <StackPanel Name="block" Padding="0,15,0,0">
@@ -43,21 +43,13 @@
                 <TextBlock Text="Order total" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,8,0,0"/>
                 <TextBlock Text="{x:Bind MasterMenuItem.OrderTotal, Mode=OneWay}" Style="{StaticResource BodyTextBlockStyle}" />-->
 
-                <TextBlock Text="Test" Style="{StaticResource BodyTextBlockStyle}" />
-                <TextBlock Text="Test alatta" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,8,0,0"/>
+                <TextBlock Text="Elkészítési idő" Style="{StaticResource BodyTextBlockStyle}" />
+                <TextBlock Text="{x:Bind MasterMenuItem.PreparationTime, Mode=OneWay}" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,8,0,0"/>
 
-                <TextBlock Text="Note 1" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,16,0,0" />
-                <TextBlock Style="{StaticResource BodyTextBlockStyle}" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis hendrerit nulla, vel molestie libero. In nec ultricies magna, ultricies molestie ipsum. Mauris non dignissim velit. Etiam malesuada blandit mauris eu maximus. Quisque ornare, felis nec scelerisque mollis, risus dolor posuere magna, in gravida quam mi id nisi. Nullam mattis consequat ex. Cras nulla neque, dictum ac urna et, vestibulum feugiat ex. Pellentesque malesuada accumsan ligula, vel fringilla lacus facilisis sit amet. Proin convallis tempor arcu, ac placerat libero pretium ut. Praesent hendrerit nisl at lobortis viverra. Fusce vitae velit odio. Nam ut tortor sed purus finibus sollicitudin quis at ante. Ut sodales dolor vel eros mollis suscipit. Donec eu nulla id urna ultricies consequat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;" />
+                <TextBlock Text="Leírás" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,16,0,0" />
+                <TextBlock Style="{StaticResource BodyTextBlockStyle}" Text="{x:Bind MasterMenuItem.Description, Mode=OneWay}" />
 
-                <TextBlock Text="Note 2" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,16,0,0" />
-                <TextBlock Style="{StaticResource BodyTextBlockStyle}" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis hendrerit nulla, vel molestie libero. In nec ultricies magna, ultricies molestie ipsum. Mauris non dignissim velit. Etiam malesuada blandit mauris eu maximus. Quisque ornare, felis nec scelerisque mollis, risus dolor posuere magna, in gravida quam mi id nisi. Nullam mattis consequat ex. Cras nulla neque, dictum ac urna et, vestibulum feugiat ex. Pellentesque malesuada accumsan ligula, vel fringilla lacus facilisis sit amet. Proin convallis tempor arcu, ac placerat libero pretium ut. Praesent hendrerit nisl at lobortis viverra. Fusce vitae velit odio. Nam ut tortor sed purus finibus sollicitudin quis at ante. Ut sodales dolor vel eros mollis suscipit. Donec eu nulla id urna ultricies consequat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;" />
-
-                <TextBlock Text="Note 3" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,16,0,0" />
-                <TextBlock Style="{StaticResource BodyTextBlockStyle}" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis hendrerit nulla, vel molestie libero. In nec ultricies magna, ultricies molestie ipsum. Mauris non dignissim velit. Etiam malesuada blandit mauris eu maximus. Quisque ornare, felis nec scelerisque mollis, risus dolor posuere magna, in gravida quam mi id nisi. Nullam mattis consequat ex. Cras nulla neque, dictum ac urna et, vestibulum feugiat ex. Pellentesque malesuada accumsan ligula, vel fringilla lacus facilisis sit amet. Proin convallis tempor arcu, ac placerat libero pretium ut. Praesent hendrerit nisl at lobortis viverra. Fusce vitae velit odio. Nam ut tortor sed purus finibus sollicitudin quis at ante. Ut sodales dolor vel eros mollis suscipit. Donec eu nulla id urna ultricies consequat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;" />
-
-                <TextBlock Text="Note 4" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,16,0,0" />
-                <TextBlock Style="{StaticResource BodyTextBlockStyle}" Margin="0,0,0,24" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis hendrerit nulla, vel molestie libero. In nec ultricies magna, ultricies molestie ipsum. Mauris non dignissim velit. Etiam malesuada blandit mauris eu maximus. Quisque ornare, felis nec scelerisque mollis, risus dolor posuere magna, in gravida quam mi id nisi. Nullam mattis consequat ex. Cras nulla neque, dictum ac urna et, vestibulum feugiat ex. Pellentesque malesuada accumsan ligula, vel fringilla lacus facilisis sit amet. Proin convallis tempor arcu, ac placerat libero pretium ut. Praesent hendrerit nisl at lobortis viverra. Fusce vitae velit odio. Nam ut tortor sed purus finibus sollicitudin quis at ante. Ut sodales dolor vel eros mollis suscipit. Donec eu nulla id urna ultricies consequat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;" />
-            </StackPanel>
+           </StackPanel>
         </StackPanel>
     </ScrollViewer>
 </UserControl>
