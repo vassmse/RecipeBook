@@ -1,0 +1,60 @@
+﻿<Page
+    x:Class="RecipeBook.Views.AddRecipe"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RecipeBook.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ScrollViewer>
+            <StackPanel>
+                <TextBlock Text="Név"/>
+                <TextBox  x:Name="recipeName" Margin="10" />
+                <TextBlock Text="Típus"/>
+                <ComboBox 
+                Margin="10"
+                ItemsSource="{Binding RecipeBook.RecipeTypes}"
+                DisplayMemberPath="Name" 
+                SelectedValuePath="Name" 
+                >
+                </ComboBox>
+                <TextBlock Text="Elkészítési idő"/>
+                <TextBox  x:Name="prepTime" Margin="10" />
+                <TextBlock Text="Leírás"/>
+                <TextBox  x:Name="description" Margin="10" Height="150" TextWrapping="Wrap" />
+
+                <Button Content="Kép feltöltése..." Margin="10" />
+
+
+                <Grid Background="LightGray">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Orientation="Horizontal" Margin="10" Grid.Row="0">
+                        <ComboBox Margin="10" ItemsSource="{Binding RecipeBook.RawMaterials}" DisplayMemberPath="Name" SelectedValuePath="Name" >
+                        </ComboBox>
+
+                        <TextBox  x:Name="qty" Margin="10" />
+                        <TextBox  x:Name="unit" Margin="10" />
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="10" Grid.Row="1">
+                        <ComboBox Margin="10" ItemsSource="{Binding RecipeBook.RawMaterials}" DisplayMemberPath="Name" SelectedValuePath="Name" >
+                        </ComboBox>
+
+                        <TextBox  x:Name="qty1" Margin="10" />
+                        <TextBox  x:Name="unit1" Margin="10" />
+                        <Button x:Name="btn1" Content="+" Margin="10"/>
+
+                    </StackPanel>
+
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

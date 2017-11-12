@@ -9,7 +9,11 @@ namespace RecipeBook.Models
     public class MyRecipeBook : IMyRecipeBook
     {
         public List<Recipe> Recipes { get; set; }
-                
+
+        public List<RecipeType> RecipeTypes { get; set; }
+
+        public List<RawMaterial> RawMaterials { get; set; }
+        
         public IRecipeManager BusinessLayer { get; set; }
         
         public List<Recipe> Soups
@@ -27,6 +31,8 @@ namespace RecipeBook.Models
         {
             BusinessLayer = businessLayer;
             Recipes = BusinessLayer.GetRecipes();
+            RecipeTypes = BusinessLayer.GetRecipeTypes();
+            RawMaterials = BusinessLayer.GetRawMaterial();
         }
 
         #region BL methods

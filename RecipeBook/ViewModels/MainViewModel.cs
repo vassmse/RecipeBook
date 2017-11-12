@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.Toolkit.Uwp.UI.Controls;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Collections.Generic;
+using RecipeBookInterfaces.EntryPoints;
 
 namespace RecipeBook.ViewModels
 {
@@ -13,7 +15,7 @@ namespace RecipeBook.ViewModels
     {
         #region Properties
 
-        private RecipeManager _businessLayer { get; set; }
+        private IRecipeManager _businessLayer { get; set; }
 
         private MyRecipeBook recipeBook;
         public MyRecipeBook RecipeBook
@@ -33,6 +35,7 @@ namespace RecipeBook.ViewModels
             get { return selectedRecipe; }
             set { selectedRecipe = value; }
         }
+        
 
         #endregion
 

@@ -10,6 +10,10 @@ namespace RecipeBookInterfaces.EntryPoints
     {
         List<Recipe> GetRecipes();
 
+        List<RecipeType> GetRecipeTypes();
+
+        List<RawMaterial> GetRawMaterial();
+
         void AddRecipe(Recipe recipe);
 
         void DeleteRecipe(Recipe recipe);

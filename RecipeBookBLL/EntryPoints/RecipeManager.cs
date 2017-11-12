@@ -57,6 +57,27 @@ namespace RecipeBookBLL.Models
                 };
         }
 
+        public List<RecipeType> GetRecipeTypes()
+        {
+            return new List<RecipeType>()
+            {
+                new RecipeType { Id = 1, Name = "Leves" },
+                new RecipeType { Id = 2, Name = "Főétel" },
+                new RecipeType { Id = 2, Name = "Desszert" }
+             };
+        }
+
+        public List<RawMaterial> GetRawMaterial()
+        {
+            return new List<RawMaterial>()
+            {
+                new RawMaterial { Id = 1, Name = "liszt" },
+                new RawMaterial { Id = 2, Name = "víz" },
+                new RawMaterial { Id = 2, Name = "só" },
+                new RawMaterial { Id = 2, Name = "borsó" }
+             };
+        }
+
         public void AddRecipe(Recipe recipe)
         {
             throw new NotImplementedException();

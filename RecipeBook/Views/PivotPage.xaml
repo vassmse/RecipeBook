@@ -25,6 +25,11 @@
                     <views:RecipeDetailed/>
                 </Frame>
             </PivotItem>
+            <PivotItem Header="Új recept">
+                <Frame>
+                    <views:AddRecipe/>
+                </Frame>
+            </PivotItem>
 
             <Pivot.RightHeader>
                 <CommandBar OverflowButtonVisibility="Collapsed" Background="Transparent">

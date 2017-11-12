@@ -5,14 +5,14 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:views="using:RecipeBook.Views"
-    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    xmlns:model="clr-namespace:RecipeBookInterfaces.Models.Tables;assembly=RecipeBookInterfaces"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"        
+    xmlns:model="clr-namespace:RecipeBookInterfaces"
     Style="{StaticResource PageStyle}"
     mc:Ignorable="d">
 
     <Page.Resources>
         <!--<DataTemplate x:Key="ItemTemplate" x:DataType="model:Recipe">-->
-            <DataTemplate x:Key="ItemTemplate">
+        <DataTemplate x:Key="ItemTemplate" >
                 <Grid Height="64" Padding="0,8">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
