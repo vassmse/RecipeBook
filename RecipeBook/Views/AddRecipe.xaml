@@ -28,28 +28,30 @@
                 <Button Content="Kép feltöltése..." Margin="10" />
 
 
-                <Grid Background="LightGray">
+                <Grid Background="AliceBlue" Margin="10">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"></RowDefinition>
                         <RowDefinition Height="auto"></RowDefinition>
                     </Grid.RowDefinitions>
 
-                    <StackPanel Orientation="Horizontal" Margin="10" Grid.Row="0">
+                    <StackPanel Orientation="Horizontal" Grid.Row="0">
                         <ComboBox Margin="10" ItemsSource="{Binding RecipeBook.RawMaterials}" DisplayMemberPath="Name" SelectedValuePath="Name" >
                         </ComboBox>
 
                         <TextBox  x:Name="qty" Margin="10" />
                         <TextBox  x:Name="unit" Margin="10" />
+                        <Button Content="-" Margin="10"/>
 
                     </StackPanel>
 
-                    <StackPanel Orientation="Horizontal" Margin="10" Grid.Row="1">
+                    <StackPanel Orientation="Horizontal" Grid.Row="1">
                         <ComboBox Margin="10" ItemsSource="{Binding RecipeBook.RawMaterials}" DisplayMemberPath="Name" SelectedValuePath="Name" >
                         </ComboBox>
 
                         <TextBox  x:Name="qty1" Margin="10" />
                         <TextBox  x:Name="unit1" Margin="10" />
-                        <Button x:Name="btn1" Content="+" Margin="10"/>
+                        <Button  Content="-" Margin="10"/>
+                        <Button Content="+" Margin="10"/>
 
                     </StackPanel>
 
