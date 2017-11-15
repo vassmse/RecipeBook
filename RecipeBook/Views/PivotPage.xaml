@@ -46,24 +46,19 @@
 
 
 
-            <!--<Pivot.RightHeader>
-                <PivotItem Header="Új recept" VerticalAlignment="">
-                    <Frame>
-                        <views:AddRecipe/>
-                    </Frame>
-                </PivotItem>
-                --><!--<CommandBar OverflowButtonVisibility="Collapsed" Background="Transparent">
+            <Pivot.RightHeader>
+                <CommandBar OverflowButtonVisibility="Collapsed" Background="Transparent">
                     <AppBarButton Label="Add" Icon="Add">
                         <TextBox Text="test"/>
                     </AppBarButton>
-                    
+
                     <AppBarSeparator/>
                     <AppBarButton Icon="Edit"/>
                     <AppBarButton Icon="Delete"/>
                     <AppBarSeparator/>
                     <AppBarButton Icon="Save"/>
-                </CommandBar>--><!--
-            </Pivot.RightHeader>-->
+                </CommandBar>
+            </Pivot.RightHeader>
         </Pivot>
     </Grid>
 
