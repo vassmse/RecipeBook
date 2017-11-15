@@ -26,7 +26,7 @@
         <Pivot Grid.Row="1">
             <PivotItem Header="Levesek">
                 <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}" Margin="0 0 0 20">
-                    <ItemsControl ItemsSource="{Binding RecipeBook.Soups, UpdateSourceTrigger=PropertyChanged}">
+                    <ItemsControl ItemsSource="{Binding Path=RecipeBook.Soups, UpdateSourceTrigger=PropertyChanged}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <StackPanel />
@@ -41,10 +41,10 @@
                                         <ColumnDefinition Width="200" />
                                     </Grid.ColumnDefinitions>
                                     <Border BorderThickness="1">
-                                        <Image Source="../Images/food2.jpg" Height="80" Stretch="Fill" Grid.Column="0"/>
+                                        <Image Source="../Images/notavailable.jpg" Height="80" Stretch="Fill" Grid.Column="0" Margin="5" />
                                     </Border>
-                                    <TextBlock Text="{Binding Name}" Grid.Column="1"/>
-                                    <TextBlock Text="{Binding PreparationTime}" Grid.Column="2"/>
+                                    <TextBlock Text="{Binding Name}" Grid.Column="1" Margin="5"/>
+                                    <TextBlock Text="{Binding PreparationTime}" Grid.Column="2" Margin="5"/>
                                 </Grid>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
@@ -69,10 +69,10 @@
                                         <ColumnDefinition Width="200" />
                                     </Grid.ColumnDefinitions>
                                     <Border BorderThickness="1">
-                                        <Image Source="../Images/food2.jpg" Height="80" Stretch="Fill" Grid.Column="0"/>
+                                        <Image Source="../Images/notavailable.jpg" Height="80" Stretch="Fill" Grid.Column="0" Margin="5" />
                                     </Border>
-                                    <TextBlock Text="{Binding Name}" Grid.Column="1"/>
-                                    <TextBlock Text="{Binding PreparationTime}" Grid.Column="2"/>
+                                    <TextBlock Text="{Binding Name}" Grid.Column="1" Margin="5"/>
+                                    <TextBlock Text="{Binding PreparationTime}" Grid.Column="2" Margin="5"/>
                                 </Grid>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
@@ -97,10 +97,10 @@
                                         <ColumnDefinition Width="200" />
                                     </Grid.ColumnDefinitions>
                                     <Border BorderThickness="1">
-                                        <Image Source="../Images/food2.jpg" Height="80" Stretch="Fill" Grid.Column="0"/>
+                                        <Image Source="../Images/notavailable.jpg" Height="80" Stretch="Fill" Grid.Column="0"  Margin="5"/>
                                     </Border>
-                                    <TextBlock Text="{Binding Name}" Grid.Column="1"/>
-                                    <TextBlock Text="{Binding PreparationTime}" Grid.Column="2"/>
+                                    <TextBlock Text="{Binding Name}" Grid.Column="1" Margin="5" />
+                                    <TextBlock Text="{Binding PreparationTime}" Grid.Column="2" Margin="5" />
                                 </Grid>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>

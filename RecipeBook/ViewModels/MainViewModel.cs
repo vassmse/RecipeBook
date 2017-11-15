@@ -73,6 +73,7 @@ namespace RecipeBook.ViewModels
             RecipeBook.AddRecipe(NewRecipe);
             SelectedRecipe = NewRecipe;
             NewRecipe = new Recipe();
+            RaisePropertyChanged("RecipeBook");
         }
 
         public void AddIngredient()
