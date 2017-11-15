@@ -20,10 +20,10 @@
             Style="{StaticResource PageTitleStyle}"
             Margin="12,0,12,7"/>
 
-        <Image Source="Images/food2.jpg" Height="80" Grid.Column="0"/>
 
 
         <Pivot Grid.Row="1">
+
             <PivotItem Header="Levesek">
                 <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}" Margin="0 0 0 20">
                     <ItemsControl ItemsSource="{Binding Path=RecipeBook.Soups, UpdateSourceTrigger=PropertyChanged}">
