@@ -3,6 +3,7 @@ using RecipeBookInterfaces.Models;
 using RecipeBookInterfaces.Models.Tables;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace RecipeBook.Models
 {
@@ -18,10 +19,11 @@ namespace RecipeBook.Models
 
         public IRecipeManager BusinessLayer { get; set; }
         
-        public List<Recipe> Soups { get; set; }
+        public ObservableCollection<Recipe> Soups { get; set; }
 
+        public ObservableCollection<Recipe> MainCourses { get; set; }
 
-        public List<Recipe> MainCourses { get; set; }
+        public ObservableCollection<Recipe> Desserts { get; set; }
 
 
 
@@ -32,8 +34,9 @@ namespace RecipeBook.Models
             RecipeTypes = BusinessLayer.GetRecipeTypes();
             RawMaterials = BusinessLayer.GetRawMaterial();
             Units = BusinessLayer.GetUnits();
-            Soups = Recipes.FindAll(r => r.Type.Name == "Leves");
-            MainCourses = Recipes.FindAll(r => r.Type.Name == "Főétel");
+            Soups = new ObservableCollection<Recipe>(Recipes.FindAll(r => r.Type.Name == "Leves"));
+            MainCourses = new ObservableCollection<Recipe>(Recipes.FindAll(r => r.Type.Name == "Főétel"));
+            Desserts = new ObservableCollection<Recipe>(Recipes.FindAll(r => r.Type.Name == "Desszert"));
         }
 
         #region BL methods
@@ -44,7 +47,6 @@ namespace RecipeBook.Models
             {
                 Recipes.Add(recipe);
                 BusinessLayer.AddRecipe(recipe);
-                MainCourses = Recipes.FindAll(r => r.Type.Name == "Főétel");
             }
         }
 
@@ -57,6 +59,8 @@ namespace RecipeBook.Models
         {
             throw new NotImplementedException();
         }
+
+       
 
         #endregion
 

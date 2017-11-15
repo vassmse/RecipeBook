@@ -5,6 +5,7 @@ using RecipeBookInterfaces.Models;
 using RecipeBookInterfaces.Models.Tables;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Text;
 
@@ -29,14 +30,14 @@ namespace RecipeBookBLL.Models
             var salt = new Ingredient { Id = 3, Material = rawSalt, Quantity = 2, Unit = "csipet" };
             var pea = new Ingredient { Id = 4, Material = rawSalt, Quantity = 1, Unit = "kg" };
 
-            var lasagnaIngredients = new List<Ingredient>
+            var lasagnaIngredients = new ObservableCollection<Ingredient>
             {
                 flour,
                 water,
                 salt
             };
 
-            var peaSoupIngredients = new List<Ingredient>
+            var peaSoupIngredients = new ObservableCollection<Ingredient>
             {
                 flour,
                 water,

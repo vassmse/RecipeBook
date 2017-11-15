@@ -28,8 +28,30 @@
 
                 <Button Content="Kép feltöltése..." Margin="10" />
 
+                <Button x:Name="AddIngredient" Content="+" Margin="10" Click="AddIngredient_Click"/>
+                <Button x:Name="RemoveIngredient" Content="-" Margin="10" Click="RemoveIngredient_Click"/>
+                <ItemsControl ItemsSource="{Binding Path=NewRecipe.Ingredients, UpdateSourceTrigger=PropertyChanged}" Margin="10">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Background="AliceBlue" >
+                                <StackPanel Orientation="Horizontal" Grid.Row="0">
+                                    <ComboBox Margin="10" ItemsSource="{Binding DataContext.RecipeBook.RawMaterials}" DisplayMemberPath="Name" SelectedItem="{Binding Material}" ></ComboBox>
+                                    <TextBox  Text="{Binding Quantity}" Margin="10" />
+                                    <ComboBox Margin="10" ItemsSource="{Binding RecipeBook.Units}" SelectedItem="{Binding Unit}"  ></ComboBox>
+                                    
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
 
-                <Grid Background="AliceBlue" Margin="10">
+
+                <!--<Grid Background="AliceBlue" Margin="10">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"></RowDefinition>
                         <RowDefinition Height="auto"></RowDefinition>
@@ -54,7 +76,7 @@
 
                     </StackPanel>                   
 
-                </Grid>
+                </Grid>-->
                 
                 <Button x:Name="SaveBtn" Content="Mentés" Margin="15" Click="SaveBtn_Click"/>
                 

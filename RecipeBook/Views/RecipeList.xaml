@@ -26,7 +26,7 @@
         <Pivot Grid.Row="1">
             <PivotItem Header="Levesek">
                 <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}" Margin="0 0 0 20">
-                    <ItemsControl ItemsSource="{Binding RecipeBook.Soups}">
+                    <ItemsControl ItemsSource="{Binding RecipeBook.Soups, UpdateSourceTrigger=PropertyChanged}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <StackPanel />
@@ -54,7 +54,35 @@
 
             <PivotItem Header="Főételek">
                 <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}" Margin="0 0 0 20">
-                    <ItemsControl ItemsSource="{Binding RecipeBook.MainCourses}">
+                    <ItemsControl ItemsSource="{Binding RecipeBook.MainCourses, UpdateSourceTrigger=PropertyChanged}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Margin="10" Background="Gainsboro">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="200" />
+                                        <ColumnDefinition Width="200" />
+                                    </Grid.ColumnDefinitions>
+                                    <Border BorderThickness="1">
+                                        <Image Source="../Images/food2.jpg" Height="80" Stretch="Fill" Grid.Column="0"/>
+                                    </Border>
+                                    <TextBlock Text="{Binding Name}" Grid.Column="1"/>
+                                    <TextBlock Text="{Binding PreparationTime}" Grid.Column="2"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Grid>
+            </PivotItem>
+
+            <PivotItem Header="Desszertek">
+                <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}" Margin="0 0 0 20">
+                    <ItemsControl ItemsSource="{Binding RecipeBook.Desserts, UpdateSourceTrigger=PropertyChanged}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <StackPanel />

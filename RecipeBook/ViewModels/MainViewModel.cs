@@ -21,6 +21,8 @@ namespace RecipeBook.ViewModels
 
         private Recipe newRecipe;
 
+        public ICommand AddEmployeeCommand { get; set; }
+
         public Recipe NewRecipe
         {
             get { return newRecipe; }
@@ -71,6 +73,17 @@ namespace RecipeBook.ViewModels
             RecipeBook.AddRecipe(NewRecipe);
             SelectedRecipe = NewRecipe;
             NewRecipe = new Recipe();
+        }
+
+        public void AddIngredient()
+        {
+            NewRecipe.Ingredients.Add(new Ingredient());
+        }
+
+        public void RemoveIngredient()
+        {
+            if (NewRecipe.Ingredients.Count > 1)
+                NewRecipe.Ingredients.RemoveAt(NewRecipe.Ingredients.Count - 1);
         }
 
         #endregion

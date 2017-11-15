@@ -37,5 +37,15 @@ namespace RecipeBook.Views
             viewModel.AddRecipe();
             Console.WriteLine();
         }
+
+        private void AddIngredient_Click(object sender, RoutedEventArgs e)
+        {
+            viewModel.AddIngredient();
+        }
+
+        private void RemoveIngredient_Click(object sender, RoutedEventArgs e)
+        {
+            viewModel.RemoveIngredient();
+        }
     }
 }
