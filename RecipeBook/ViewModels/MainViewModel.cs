@@ -77,7 +77,7 @@ namespace RecipeBook.ViewModels
 
         public void AddIngredient()
         {
-            NewRecipe.Ingredients.Add(null);
+            NewRecipe.Ingredients.Add(new Ingredient());
         }
 
         public void RemoveIngredient()

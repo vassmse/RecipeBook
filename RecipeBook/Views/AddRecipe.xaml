@@ -35,7 +35,7 @@
                         <Button x:Name="RemoveIngredient" Content="-" Margin="10" Click="RemoveIngredient_Click" Width="30" Height="30" />
                     </StackPanel>
 
-                    <ItemsControl ItemsSource="{Binding Path=NewRecipe.Ingredients, UpdateSourceTrigger=PropertyChanged}" Margin="10">
+                    <ItemsControl ItemsSource="{Binding Path=NewRecipe.Ingredients, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="10" x:Name="IngredientList" >
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <StackPanel />
@@ -45,9 +45,9 @@
                             <DataTemplate>
                                 <Grid >
                                     <StackPanel Orientation="Horizontal" Grid.Row="0">
-                                        <ComboBox Margin="10" ItemsSource="{Binding RecipeBook.RawMaterials}" DisplayMemberPath="Name" SelectedItem="{Binding Material}" ></ComboBox>
-                                        <TextBox  Text="{Binding Quantity}" Margin="10" />
-                                        <ComboBox Margin="10" ItemsSource="{Binding RecipeBook.Units}" SelectedItem="{Binding Unit}"  ></ComboBox>
+                                        <ComboBox Margin="10" ItemsSource="{Binding ElementName=IngredientList, Path=DataContext.RecipeBook.RawMaterials}" DisplayMemberPath="Name" SelectedItem="{Binding Material, Mode=TwoWay}" ></ComboBox>
+                                        <TextBox  Text="{Binding Quantity, Mode=TwoWay}" Margin="10" />
+                                        <ComboBox Margin="10" ItemsSource="{Binding ElementName=IngredientList, Path=DataContext.RecipeBook.Units}" SelectedItem="{Binding Unit, Mode=TwoWay}"  ></ComboBox>
 
                                     </StackPanel>
                                 </Grid>

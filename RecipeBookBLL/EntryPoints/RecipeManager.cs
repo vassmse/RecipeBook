@@ -25,8 +25,8 @@ namespace RecipeBookBLL.Models
             var rawSalt = new RawMaterial { Id = 3, Name = "só" };
             var rawPea = new RawMaterial { Id = 4, Name = "borsó" };
 
-            var flour = new Ingredient { Id = 1, Material = rawFlour, Quantity = 0.5, Unit = "kg" };
-            var water = new Ingredient { Id = 2, Material = rawWater, Quantity = 0.2, Unit = "liter" };
+            var flour = new Ingredient { Id = 1, Material = rawFlour, Quantity = 5, Unit = "kg" };
+            var water = new Ingredient { Id = 2, Material = rawWater, Quantity = 2, Unit = "liter" };
             var salt = new Ingredient { Id = 3, Material = rawSalt, Quantity = 2, Unit = "csipet" };
             var pea = new Ingredient { Id = 4, Material = rawSalt, Quantity = 1, Unit = "kg" };
 
