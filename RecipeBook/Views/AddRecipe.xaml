@@ -11,19 +11,20 @@
         <ScrollViewer>
             <StackPanel>
                 <TextBlock Text="Név"/>
-                <TextBox  x:Name="recipeName" Margin="10" />
+                <TextBox  x:Name="recipeName" Text="{Binding NewRecipe.Name, Mode=TwoWay}" Margin="10" />
                 <TextBlock Text="Típus"/>
                 <ComboBox 
                 Margin="10"
                 ItemsSource="{Binding RecipeBook.RecipeTypes}"
                 DisplayMemberPath="Name" 
                 SelectedValuePath="Name" 
+                SelectedItem="{Binding NewRecipe.Type, Mode=TwoWay}"
                 >
                 </ComboBox>
                 <TextBlock Text="Elkészítési idő"/>
-                <TextBox  x:Name="prepTime" Margin="10" />
+                <TextBox  Text="{Binding NewRecipe.PreparationTime, Mode=TwoWay}" Margin="10" />
                 <TextBlock Text="Leírás"/>
-                <TextBox  x:Name="description" Margin="10" Height="150" TextWrapping="Wrap" />
+                <TextBox  Text="{Binding NewRecipe.Description, Mode=TwoWay}" Margin="10" Height="150" TextWrapping="Wrap" />
 
                 <Button Content="Kép feltöltése..." Margin="10" />
 
@@ -35,11 +36,9 @@
                     </Grid.RowDefinitions>
 
                     <StackPanel Orientation="Horizontal" Grid.Row="0">
-                        <ComboBox Margin="10" ItemsSource="{Binding RecipeBook.RawMaterials}" DisplayMemberPath="Name" SelectedValuePath="Name" >
-                        </ComboBox>
-
+                        <ComboBox Margin="10" ItemsSource="{Binding RecipeBook.RawMaterials}" DisplayMemberPath="Name" ></ComboBox>
                         <TextBox  x:Name="qty" Margin="10" />
-                        <TextBox  x:Name="unit" Margin="10" />
+                        <ComboBox Margin="10" ItemsSource="{Binding RecipeBook.Units}"  ></ComboBox>
                         <Button Content="-" Margin="10"/>
 
                     </StackPanel>
@@ -53,9 +52,12 @@
                         <Button  Content="-" Margin="10"/>
                         <Button Content="+" Margin="10"/>
 
-                    </StackPanel>
+                    </StackPanel>                   
 
                 </Grid>
+                
+                <Button x:Name="SaveBtn" Content="Mentés" Margin="15" Click="SaveBtn_Click"/>
+                
             </StackPanel>
         </ScrollViewer>
     </Grid>

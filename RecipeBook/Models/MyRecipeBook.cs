@@ -13,18 +13,16 @@ namespace RecipeBook.Models
         public List<RecipeType> RecipeTypes { get; set; }
 
         public List<RawMaterial> RawMaterials { get; set; }
-        
+
+        public List<string> Units { get; set; }
+
         public IRecipeManager BusinessLayer { get; set; }
         
-        public List<Recipe> Soups
-        {
-            get { return Recipes.FindAll(r => r.Type.Name == "Leves"); }
-        }
+        public List<Recipe> Soups { get; set; }
 
-        public List<Recipe> MainCourses
-        {
-            get { return Recipes.FindAll(r => r.Type.Name == "Főétel"); }
-        }
+
+        public List<Recipe> MainCourses { get; set; }
+
 
 
         public MyRecipeBook(IRecipeManager businessLayer)
@@ -33,6 +31,9 @@ namespace RecipeBook.Models
             Recipes = BusinessLayer.GetRecipes();
             RecipeTypes = BusinessLayer.GetRecipeTypes();
             RawMaterials = BusinessLayer.GetRawMaterial();
+            Units = BusinessLayer.GetUnits();
+            Soups = Recipes.FindAll(r => r.Type.Name == "Leves");
+            MainCourses = Recipes.FindAll(r => r.Type.Name == "Főétel");
         }
 
         #region BL methods
@@ -43,6 +44,7 @@ namespace RecipeBook.Models
             {
                 Recipes.Add(recipe);
                 BusinessLayer.AddRecipe(recipe);
+                MainCourses = Recipes.FindAll(r => r.Type.Name == "Főétel");
             }
         }
 

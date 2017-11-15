@@ -78,19 +78,31 @@ namespace RecipeBookBLL.Models
              };
         }
 
+        public List<string> GetUnits()
+        {
+            return new List<string>()
+            {
+                "kg",
+                "liter",
+                "ek",
+                "darab",
+                "dl"
+             };
+        }
+
         public void AddRecipe(Recipe recipe)
         {
-            throw new NotImplementedException();
+            
         }
 
         public void DeleteRecipe(Recipe recipe)
         {
-            throw new NotImplementedException();
+            
         }
 
         public void ModifyRecipe(Recipe recipe)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

@@ -24,11 +24,18 @@ namespace RecipeBook.Views
     /// </summary>
     public sealed partial class AddRecipe : Page
     {
+        MainViewModel viewModel = new MainViewModel();
+
         public AddRecipe()
         {
             this.InitializeComponent();
-            DataContext = new MainViewModel();
+            DataContext = viewModel;
         }
 
+        private void SaveBtn_Click(object sender, RoutedEventArgs e)
+        {
+            viewModel.AddRecipe();
+            Console.WriteLine();
+        }
     }
 }

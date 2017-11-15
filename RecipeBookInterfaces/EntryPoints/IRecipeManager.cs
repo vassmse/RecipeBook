@@ -14,6 +14,8 @@ namespace RecipeBookInterfaces.EntryPoints
 
         List<RawMaterial> GetRawMaterial();
 
+        List<string> GetUnits();
+
         void AddRecipe(Recipe recipe);
 
         void DeleteRecipe(Recipe recipe);

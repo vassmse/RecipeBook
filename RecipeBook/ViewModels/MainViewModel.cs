@@ -8,6 +8,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Collections.Generic;
 using RecipeBookInterfaces.EntryPoints;
+using System.Windows.Input;
+using System;
 
 namespace RecipeBook.ViewModels
 {
@@ -16,6 +18,18 @@ namespace RecipeBook.ViewModels
         #region Properties
 
         private IRecipeManager _businessLayer { get; set; }
+
+        private Recipe newRecipe;
+
+        public Recipe NewRecipe
+        {
+            get { return newRecipe; }
+            set
+            {
+                newRecipe = value;
+                RaisePropertyChanged("NewRecipe");
+            }
+        }
 
         private MyRecipeBook recipeBook;
         public MyRecipeBook RecipeBook
@@ -27,7 +41,7 @@ namespace RecipeBook.ViewModels
                 RaisePropertyChanged("RecipeBook");
             }
         }
-        
+
         private Recipe selectedRecipe;
 
         public Recipe SelectedRecipe
@@ -35,7 +49,6 @@ namespace RecipeBook.ViewModels
             get { return selectedRecipe; }
             set { selectedRecipe = value; }
         }
-        
 
         #endregion
 
@@ -46,6 +59,7 @@ namespace RecipeBook.ViewModels
             _businessLayer = new RecipeManager();
             RecipeBook = new MyRecipeBook(_businessLayer);
             SelectedRecipe = RecipeBook.Recipes.First();
+            NewRecipe = new Recipe();
         }
 
         #endregion
@@ -54,12 +68,13 @@ namespace RecipeBook.ViewModels
 
         public void AddRecipe()
         {
-            var recipe = new Recipe();            
-            recipeBook.AddRecipe(recipe);
-            SelectedRecipe = RecipeBook.Recipes.First();
+            RecipeBook.AddRecipe(NewRecipe);
+            SelectedRecipe = NewRecipe;
+            NewRecipe = new Recipe();
         }
 
         #endregion
+
 
         #region PropertyChangedEventHandler
 
