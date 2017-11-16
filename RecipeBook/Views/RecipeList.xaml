@@ -34,7 +34,7 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <Grid x:Name="SoupGrid" Margin="10" Background="Gainsboro" PointerPressed="SoupGrid_PointerPressed" >
+                                <Grid Margin="10" Background="Gainsboro" PointerPressed="RecipeGrid_PointerPressed" >
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="100" />
                                         <ColumnDefinition Width="200" />
@@ -62,7 +62,7 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <Grid Margin="10" Background="Gainsboro">
+                                <Grid Margin="10" Background="Gainsboro" PointerPressed="RecipeGrid_PointerPressed">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="100" />
                                         <ColumnDefinition Width="200" />
@@ -90,7 +90,7 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <Grid Margin="10" Background="Gainsboro">
+                                <Grid Margin="10" Background="Gainsboro"  PointerPressed="RecipeGrid_PointerPressed">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="100" />
                                         <ColumnDefinition Width="200" />

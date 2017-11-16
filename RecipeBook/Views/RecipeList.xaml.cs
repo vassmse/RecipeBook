@@ -1,4 +1,5 @@
 ﻿using RecipeBook.ViewModels;
+using RecipeBookInterfaces.Models.Tables;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,14 +24,20 @@ namespace RecipeBook.Views
     /// </summary>
     public sealed partial class RecipeList : Page
     {
+
+        MainViewModel viewModel = new MainViewModel();
         public RecipeList()
         {
             InitializeComponent();
-            DataContext = new MainViewModel();
+            DataContext = viewModel;
         }
 
-        private void SoupGrid_PointerPressed(object sender, PointerRoutedEventArgs e)
+        private void RecipeGrid_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
+            var baseobj = sender as FrameworkElement;
+            var selectedRecipe = baseobj.DataContext as Recipe;
+            viewModel.SelectedRecipe = selectedRecipe;
+
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(PivotPage));
         }
