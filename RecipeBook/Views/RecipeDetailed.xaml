@@ -48,7 +48,7 @@
         <controls:MasterDetailsView
             Grid.Row="1"
             x:Name="MasterDetailsViewControl"
-            ItemsSource="{Binding RecipeBook.Recipes, Mode=OneWay}"
+            ItemsSource="{Binding SelectedRecipes, Mode=OneWay}"
             SelectedItem="{Binding SelectedRecipe, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
             ItemTemplate="{StaticResource ItemTemplate}"
             DetailsTemplate="{StaticResource DetailsTemplate}"

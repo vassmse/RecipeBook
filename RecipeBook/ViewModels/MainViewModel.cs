@@ -45,7 +45,6 @@ namespace RecipeBook.ViewModels
         }
 
         private Recipe selectedRecipe;
-
         public Recipe SelectedRecipe
         {
             get { return selectedRecipe; }
@@ -53,6 +52,17 @@ namespace RecipeBook.ViewModels
             {
                 selectedRecipe = value;
                 RaisePropertyChanged("SelectedRecipe");
+            }
+        }
+
+        private List<Recipe> selectedRecipes;
+        public List<Recipe> SelectedRecipes
+        {
+            get { return RecipeBook.Recipes.Where(r => r.Type == SelectedRecipe.Type).ToList(); }
+            set
+            {
+                selectedRecipes = value;
+                RaisePropertyChanged("SelectedRecipes");
             }
         }
 
@@ -64,7 +74,7 @@ namespace RecipeBook.ViewModels
         {
             _businessLayer = new RecipeManager();
             RecipeBook = new MyRecipeBook(_businessLayer);
-            SelectedRecipe = RecipeBook.Recipes.First();
+            SelectedRecipe = RecipeBook.Recipes[4];
             NewRecipe = new Recipe();
         }
 
