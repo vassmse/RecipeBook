@@ -5,13 +5,11 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:views="using:RecipeBook.Views"
-    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"        
-    xmlns:model="clr-namespace:RecipeBookInterfaces"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"    
     Style="{StaticResource PageStyle}"
     mc:Ignorable="d">
 
     <Page.Resources>
-        <!--<DataTemplate x:Key="ItemTemplate" x:DataType="model:Recipe">-->
         <DataTemplate x:Key="ItemTemplate" >
                 <Grid Height="64" Padding="0,8">
                 <Grid.ColumnDefinitions>
@@ -20,10 +18,8 @@
                 </Grid.ColumnDefinitions>
                 <FontIcon Grid.Column="0" Tag="Tag" FontSize="40" Glyph="G" VerticalAlignment="Center" />
                 <StackPanel Grid.Column="1" Margin="12,0,0,0" VerticalAlignment="Center">
-                    <!--<TextBlock Text="{x:Bind Name}" Tag="Tag" Style="{ThemeResource ListTitleStyle}"/>
-                    <TextBlock Text="{x:Bind PreparationTime}" Style="{StaticResource ListSubTitleStyle}"/>-->
-                    <TextBlock Text="Name" Tag="Tag" Style="{ThemeResource ListTitleStyle}"/>
-                    <TextBlock Text="PrepTime" Style="{StaticResource ListSubTitleStyle}"/>
+                    <TextBlock Text="{Binding Name}" Tag="Tag" Style="{ThemeResource ListTitleStyle}"/>
+                    <TextBlock Text="{Binding PreparationTime}" Style="{StaticResource ListSubTitleStyle}"/>
                 </StackPanel>
             </Grid>
         </DataTemplate>
@@ -44,7 +40,7 @@
         </Grid.RowDefinitions>
 
         <TextBlock
-            Text="Leves"
+            Text="{Binding SelectedRecipe.Type.Name}"
             x:Name="TitlePage"
             Margin="12,0,12,7"
             Style="{StaticResource PageTitleStyle}" />
@@ -52,8 +48,8 @@
         <controls:MasterDetailsView
             Grid.Row="1"
             x:Name="MasterDetailsViewControl"
-            ItemsSource="{x:Bind ViewModel.RecipeBook.Recipes, Mode=OneWay}"
-            SelectedItem="{x:Bind ViewModel.SelectedRecipe, Mode=OneWay}"
+            ItemsSource="{Binding RecipeBook.Recipes, Mode=OneWay}"
+            SelectedItem="{Binding SelectedRecipe, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
             ItemTemplate="{StaticResource ItemTemplate}"
             DetailsTemplate="{StaticResource DetailsTemplate}"
             NoSelectionContentTemplate="{StaticResource NoSelectionContentTemplate}"

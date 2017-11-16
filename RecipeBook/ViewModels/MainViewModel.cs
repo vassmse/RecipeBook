@@ -49,7 +49,11 @@ namespace RecipeBook.ViewModels
         public Recipe SelectedRecipe
         {
             get { return selectedRecipe; }
-            set { selectedRecipe = value; }
+            set
+            {
+                selectedRecipe = value;
+                RaisePropertyChanged("SelectedRecipe");
+            }
         }
 
         #endregion
