@@ -28,5 +28,11 @@ namespace RecipeBook.Views
             InitializeComponent();
             DataContext = new MainViewModel();
         }
+
+        private void SoupGrid_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(PivotPage));
+        }
     }
 }

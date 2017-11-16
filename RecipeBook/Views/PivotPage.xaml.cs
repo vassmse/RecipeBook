@@ -29,5 +29,13 @@ namespace RecipeBook.Views
             DataContext = new MainViewModel();
             InitializeComponent();
         }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            MainPivot.SelectedIndex = 2;
+            base.OnNavigatedFrom(e);
+        }
+
+
     }
 }
