@@ -7,10 +7,59 @@
     xmlns:views="using:RecipeBook.Views"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
         <Pivot Title="ReceptKönyv" x:Name="MainPivot">
+            <PivotItem>
+                <PivotItem.Header>
+                    <StackPanel>
+                        <SymbolIcon Symbol="Home"/>
+                        <TextBlock Text="Főmenü"/>
+                    </StackPanel>
+                </PivotItem.Header>
+                <Frame>
+                    <views:MainPage/>
+                </Frame>
+            </PivotItem>
 
-            <PivotItem Header="Főmenü">
+            <PivotItem  >
+                <PivotItem.Header>
+                    <StackPanel Orientation="Vertical">
+                        <SymbolIcon Symbol="BrowsePhotos"/>
+                        <TextBlock Text="Receptek"/>
+                    </StackPanel>
+                </PivotItem.Header>
+                <Frame>
+                    <views:RecipeList/>
+                </Frame>
+            </PivotItem>
+
+            <PivotItem  >
+                <PivotItem.Header>
+                    <StackPanel Orientation="Vertical">
+                        <SymbolIcon Symbol="AllApps"/>
+                        <TextBlock Text="Részletek"/>
+                    </StackPanel>
+                </PivotItem.Header>
+                <Frame>
+                    <views:RecipeDetailed/>
+                </Frame>
+            </PivotItem>
+
+            <PivotItem  >
+                <PivotItem.Header>
+                    <StackPanel Orientation="Vertical">
+                        <SymbolIcon Symbol="Add"/>
+                        <TextBlock Text="Új recept"/>
+                    </StackPanel>
+                </PivotItem.Header>
+                <Frame>
+                    <views:AddRecipe/>
+                </Frame>
+            </PivotItem>
+
+
+
+            <!--<PivotItem Header="Főmenü">
                 <Frame>
                     <views:MainPage/>
                 </Frame>
@@ -30,7 +79,7 @@
                 <Frame>
                     <views:AddRecipe/>
                 </Frame>
-            </PivotItem>
+            </PivotItem>-->
 
             <!--<PivotItem  >
                 <PivotItem.Header>
@@ -42,6 +91,8 @@
                     <views:AddRecipe/>
                 </Frame>
             </PivotItem>-->
+
+            
 
 
 

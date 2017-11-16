@@ -40,7 +40,7 @@
         </Grid.RowDefinitions>
 
         <TextBlock
-            Text="{Binding SelectedRecipe.Type.Name}"
+            Text="{x:Bind ViewModel.SelectedRecipe.Type.Name}"
             x:Name="TitlePage"
             Margin="12,0,12,7"
             Style="{StaticResource PageTitleStyle}" />
@@ -48,8 +48,8 @@
         <controls:MasterDetailsView
             Grid.Row="1"
             x:Name="MasterDetailsViewControl"
-            ItemsSource="{Binding SelectedRecipes, Mode=OneWay}"
-            SelectedItem="{Binding SelectedRecipe, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+            ItemsSource="{x:Bind ViewModel.SelectedRecipes, Mode=OneWay}"
+            SelectedItem="{x:Bind ViewModel.SelectedRecipe, Mode=OneWay}"
             ItemTemplate="{StaticResource ItemTemplate}"
             DetailsTemplate="{StaticResource DetailsTemplate}"
             NoSelectionContentTemplate="{StaticResource NoSelectionContentTemplate}"

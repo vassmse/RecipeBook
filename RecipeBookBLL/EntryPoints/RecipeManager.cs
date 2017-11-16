@@ -45,6 +45,13 @@ namespace RecipeBookBLL.Models
                 pea
             };
 
+            var pizzaIngredients = new ObservableCollection<Ingredient>
+            {
+                flour,
+                water
+            };
+
+
             var soup = new RecipeType { Id = 1, Name = "Leves" };
             var mainCourse = new RecipeType { Id = 2, Name = "Főétel" };
             
@@ -53,8 +60,8 @@ namespace RecipeBookBLL.Models
                     new Recipe {Id=1, Name="Borsóleves", Description="Meg kell főzni a borsólevest. Nagyon finom.", PreparationTime=30, Ingredients=peaSoupIngredients, Type=soup},
                     new Recipe {Id=2, Name="Hagymaleves", Description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis hendrerit nulla, vel molestie libero. In nec ultricies magna, ultricies molestie ipsum. Mauris non dignissim velit. Etiam malesuada blandit mauris eu maximus. Quisque ornare, felis nec scelerisque mollis, risus dolor posuere magna, in gravida quam mi id nisi. Nullam mattis consequat ex. Cras nulla neque, dictum ac urna et, vestibulum feugiat ex. Pellentesque malesuada accumsan ligula, vel fringilla lacus facilisis sit amet. Proin convallis tempor arcu, ac placerat libero pretium ut. Praesent hendrerit nisl at lobortis viverra. Fusce vitae velit odio. Nam ut tortor sed purus finibus sollicitudin quis at ante. Ut sodales dolor vel eros mollis suscipit. Donec eu nulla id urna ultricies consequat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae", PreparationTime=20, Ingredients=lasagnaIngredients, Type=soup},
                     new Recipe {Id=3, Name="Lasagna", Description="Meg kell sütni. Minnél több, annál jobb.", PreparationTime=140, Ingredients=lasagnaIngredients, Type=mainCourse},
-                    new Recipe {Id=4, Name="Pizza" , Description="Meg kell sütni", PreparationTime=180, Ingredients=lasagnaIngredients, Type=mainCourse},
-                    new Recipe {Id=5, Name="Rakottkrumpli" , Description="Meg kell sütni", PreparationTime=200, Ingredients=lasagnaIngredients, Type=mainCourse}
+                    new Recipe {Id=4, Name="Pizza" , Description="Ezt is meg kell sütni", PreparationTime=180, Ingredients=pizzaIngredients, Type=mainCourse},
+                    new Recipe {Id=5, Name="Rakottkrumpli" , Description="Meg kell sütni", PreparationTime=200, Ingredients=peaSoupIngredients, Type=mainCourse}
                 };
         }
 

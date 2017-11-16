@@ -55,10 +55,10 @@ namespace RecipeBook.ViewModels
             }
         }
 
-        private List<Recipe> selectedRecipes;
-        public List<Recipe> SelectedRecipes
+        private ObservableCollection<Recipe> selectedRecipes;
+        public ObservableCollection<Recipe> SelectedRecipes
         {
-            get { return RecipeBook.Recipes.Where(r => r.Type == SelectedRecipe.Type).ToList(); }
+            get { return new ObservableCollection<Recipe>(RecipeBook.Recipes.Where(r => r.Type == SelectedRecipe.Type)); }
             set
             {
                 selectedRecipes = value;
@@ -74,7 +74,7 @@ namespace RecipeBook.ViewModels
         {
             _businessLayer = new RecipeManager();
             RecipeBook = new MyRecipeBook(_businessLayer);
-            SelectedRecipe = RecipeBook.Recipes[4];
+            SelectedRecipe = RecipeBook.Recipes[1];
             NewRecipe = new Recipe();
         }
 
@@ -86,8 +86,8 @@ namespace RecipeBook.ViewModels
         {
             RecipeBook.AddRecipe(NewRecipe);
             SelectedRecipe = NewRecipe;
-            NewRecipe = new Recipe();
-            RaisePropertyChanged("RecipeBook");
+            NewRecipe = new Recipe();            
+            SelectedRecipes = new ObservableCollection<Recipe>(RecipeBook.Recipes.Where(r => r.Type == SelectedRecipe.Type));
         }
 
         public void AddIngredient()

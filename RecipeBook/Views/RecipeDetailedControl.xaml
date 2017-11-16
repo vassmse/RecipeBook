@@ -27,21 +27,11 @@
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center"/>-->
                 <TextBlock
-                    Margin="12,0,0,0"
+                    Margin="0,0,0,0"
                     Text="{x:Bind MasterMenuItem.Name, Mode=OneWay}"
                     Style="{StaticResource SubheaderTextBlockStyle}" />
             </StackPanel>
             <StackPanel Name="block" Padding="0,15,0,0">
-                <!--<TextBlock Text="Status" Style="{StaticResource SubtitleTextBlockStyle}"/>
-                <TextBlock Text="{x:Bind MasterMenuItem.Status, Mode=OneWay}" Style="{StaticResource BodyTextBlockStyle}" />
-                <TextBlock Text="Order date" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,8,0,0"/>
-                <TextBlock Text="{x:Bind MasterMenuItem.OrderDate, Mode=OneWay}" Style="{StaticResource BodyTextBlockStyle}" />
-                <TextBlock Text="Company" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,8,0,0"/>
-                <TextBlock Text="{x:Bind MasterMenuItem.Company, Mode=OneWay}" Style="{StaticResource BodyTextBlockStyle}" />
-                <TextBlock Text="Ship to" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,8,0,0"/>
-                <TextBlock Text="{x:Bind MasterMenuItem.ShipTo, Mode=OneWay}" Style="{StaticResource BodyTextBlockStyle}" />
-                <TextBlock Text="Order total" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,8,0,0"/>
-                <TextBlock Text="{x:Bind MasterMenuItem.OrderTotal, Mode=OneWay}" Style="{StaticResource BodyTextBlockStyle}" />-->
 
                 <TextBlock Text="Elkészítési idő" Style="{StaticResource BodyTextBlockStyle}" />
                 <TextBlock Text="{x:Bind MasterMenuItem.PreparationTime, Mode=OneWay}" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,8,0,0"/>
@@ -49,7 +39,25 @@
                 <TextBlock Text="Leírás" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,16,0,0" />
                 <TextBlock Style="{StaticResource BodyTextBlockStyle}" Text="{x:Bind MasterMenuItem.Description, Mode=OneWay}" />
 
-           </StackPanel>
+                <TextBlock Text="Hozzávalók" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,16,0,0" />
+                <ItemsControl ItemsSource="{x:Bind MasterMenuItem.Ingredients, Mode=OneWay}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Material.Name, Mode=OneWay}" Style="{StaticResource SubtitleTextBlockStyle}" Margin="5,8,5,0"/>
+                                <TextBlock Text="{Binding Quantity, Mode=OneWay}" Style="{StaticResource SubtitleTextBlockStyle}" Margin="5,8,5,0"/>
+                                <TextBlock Text="{Binding Unit, Mode=OneWay}" Style="{StaticResource SubtitleTextBlockStyle}" Margin="5,8,5,0"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+            </StackPanel>
         </StackPanel>
     </ScrollViewer>
 </UserControl>

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,21 +26,22 @@ namespace RecipeBook.Views
     public sealed partial class RecipeList : Page
     {
 
-        MainViewModel viewModel = new MainViewModel();
+        MainViewModel ViewModel = new MainViewModel();
         public RecipeList()
         {
             InitializeComponent();
-            DataContext = viewModel;
+            DataContext = ViewModel;
         }
 
         private void RecipeGrid_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             var baseobj = sender as FrameworkElement;
             var selectedRecipe = baseobj.DataContext as Recipe;
-            viewModel.SelectedRecipe = selectedRecipe;
+            ViewModel.SelectedRecipe = selectedRecipe;
 
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(PivotPage));
         }
+
     }
 }
