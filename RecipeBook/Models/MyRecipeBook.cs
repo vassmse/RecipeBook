@@ -12,7 +12,6 @@ namespace RecipeBook.Models
     public class MyRecipeBook : IMyRecipeBook, INotifyPropertyChanged
     {
         private ObservableCollection<Recipe> recipes;
-
         public ObservableCollection<Recipe> Recipes
         {
             get { return recipes; }

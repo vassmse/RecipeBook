@@ -23,11 +23,10 @@
 
 
         <Pivot Grid.Row="1">
-
             <PivotItem Header="Levesek">
                 <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}"  Margin="0 0 0 20">
                     <ScrollViewer>
-                        <ItemsControl ItemsSource="{x:Bind ViewModel.RecipeBook.Soups}">
+                        <ItemsControl ItemsSource="{x:Bind ViewModel.RecipeBook.Soups, Mode=OneWay}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <StackPanel />

@@ -25,7 +25,7 @@ namespace RecipeBook.Views
     {
         public PivotPage()
         {
-            NavigationCacheMode = NavigationCacheMode.Required;
+            NavigationCacheMode = NavigationCacheMode.Required;   
             DataContext = new MainViewModel();
             InitializeComponent();
         }

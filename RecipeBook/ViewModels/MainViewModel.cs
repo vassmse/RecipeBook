@@ -84,7 +84,7 @@ namespace RecipeBook.ViewModels
             RecipeBook.AddRecipe(NewRecipe);
             SelectedRecipe = NewRecipe;
             SelectedRecipes = new ObservableCollection<Recipe>(RecipeBook.Recipes.Where(r => r.Type.Name == SelectedRecipe.Type.Name));
-            NewRecipe = new Recipe();            
+            NewRecipe = new Recipe();
         }
 
         public void AddIngredient()
@@ -108,7 +108,6 @@ namespace RecipeBook.ViewModels
         private void RaisePropertyChanged(string propertyName)
         {
             var handlers = PropertyChanged;
-
             handlers(this, new PropertyChangedEventArgs(propertyName));
         }
 

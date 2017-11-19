@@ -25,8 +25,10 @@ namespace RecipeBookInterfaces.Models.Tables
 
         public Recipe()
         {
-            Ingredients = new ObservableCollection<Ingredient>();
-            Ingredients.Add(new Ingredient());
+            Ingredients = new ObservableCollection<Ingredient>
+            {
+                new Ingredient()
+            };
         }
     }
 }

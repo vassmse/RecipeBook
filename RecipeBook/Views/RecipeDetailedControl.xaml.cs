@@ -37,9 +37,9 @@ namespace RecipeBook.Views
         private static void OnMasterMenuItemPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var control = d as RecipeDetailedControl;
-            control.ForegroundElement.ChangeView(0, 0, 1);
+            control.ForegroundElement.ChangeView(0, 0, 1);            
         }
 
-        
+                
     }
 }

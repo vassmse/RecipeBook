@@ -17,7 +17,6 @@ namespace RecipeBookBLL.Models
     {
         public RecipeManager()
         {
-
         }
 
         public ObservableCollection<Recipe> GetRecipes()
@@ -124,10 +123,11 @@ namespace RecipeBookBLL.Models
                     db.Open();
 
                     //Insert recipe
-                    SqliteCommand insertRecipe = new SqliteCommand();
-                    insertRecipe.Connection = db;
-
-                    insertRecipe.CommandText = "INSERT INTO Recipe VALUES (NULL, @Name, @Description, @PrepTime, @RecipeType, NULL);";
+                    SqliteCommand insertRecipe = new SqliteCommand
+                    {
+                        Connection = db,
+                        CommandText = "INSERT INTO Recipe VALUES (NULL, @Name, @Description, @PrepTime, @RecipeType, NULL);"
+                    };
                     insertRecipe.Parameters.AddWithValue("@Name", recipe?.Name??"");
                     insertRecipe.Parameters.AddWithValue("@Description", recipe?.Description??"");
                     insertRecipe.Parameters.AddWithValue("@PrepTime", recipe?.PreparationTime??0);
@@ -150,10 +150,11 @@ namespace RecipeBookBLL.Models
                     //Insert ingredients of the recipe
                     foreach (var ingredient in recipe.Ingredients)
                     {
-                        SqliteCommand insertIngredients = new SqliteCommand();
-                        insertIngredients.Connection = db;
-
-                        insertIngredients.CommandText = "INSERT INTO Ingredients VALUES (NULL, @RawMat, @Quantity, @Unit, @RecipeId);";
+                        SqliteCommand insertIngredients = new SqliteCommand
+                        {
+                            Connection = db,
+                            CommandText = "INSERT INTO Ingredients VALUES (NULL, @RawMat, @Quantity, @Unit, @RecipeId);"
+                        };
                         insertIngredients.Parameters.AddWithValue("@RawMat", ingredient?.Material?.Id ?? 0);
                         insertIngredients.Parameters.AddWithValue("@Quantity", ingredient?.Quantity ?? 0);
                         insertIngredients.Parameters.AddWithValue("@Unit", ingredient?.Unit ?? "");
@@ -162,15 +163,7 @@ namespace RecipeBookBLL.Models
                         insertIngredients.ExecuteReader();
                     }
 
-                    //SqliteCommand delete1 = new SqliteCommand();
-                    //delete1.Connection = db;
-                    //delete1.CommandText = "DELETE FROM Recipe;";
-                    //var tmp = delete1.ExecuteScalar();
-
-                    //SqliteCommand delete2 = new SqliteCommand();
-                    //delete2.Connection = db;
-                    //delete2.CommandText = "DELETE FROM Ingredients;";
-                    //var tmp2 = delete2.ExecuteScalar();
+                    
 
                     db.Close();
                 }
@@ -219,7 +212,7 @@ namespace RecipeBookBLL.Models
             return ingredients;
         }
 
-        private void CreateTables()
+        private void DbModification()
         {
             using (SqliteConnection db = new SqliteConnection("Filename=recipeBook.db"))
             {
@@ -263,6 +256,17 @@ namespace RecipeBookBLL.Models
                 //createTable2.ExecuteReader();
                 //createTable3.ExecuteReader();
                 //createTable4.ExecuteReader();
+
+
+                SqliteCommand delete1 = new SqliteCommand();
+                delete1.Connection = db;
+                delete1.CommandText = "DELETE FROM Recipe;";
+                var tmp = delete1.ExecuteScalar();
+
+                SqliteCommand delete2 = new SqliteCommand();
+                delete2.Connection = db;
+                delete2.CommandText = "DELETE FROM Ingredients;";
+                var tmp2 = delete2.ExecuteScalar();
 
 
                 //SqliteCommand insertCommand = new SqliteCommand();

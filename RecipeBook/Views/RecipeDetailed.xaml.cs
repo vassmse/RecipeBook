@@ -30,11 +30,5 @@ namespace RecipeBook.Views
             InitializeComponent();
             DataContext = ViewModel;
         }
-
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-        }
-
     }
 }

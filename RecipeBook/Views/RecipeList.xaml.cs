@@ -30,7 +30,7 @@ namespace RecipeBook.Views
         public RecipeList()
         {
             InitializeComponent();
-            DataContext = ViewModel;
+            DataContext = ViewModel;            
         }
 
         private void RecipeGrid_PointerPressed(object sender, PointerRoutedEventArgs e)
@@ -42,6 +42,7 @@ namespace RecipeBook.Views
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(PivotPage));
         }
+
 
     }
 }
