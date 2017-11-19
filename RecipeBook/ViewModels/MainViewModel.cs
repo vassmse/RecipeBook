@@ -74,7 +74,7 @@ namespace RecipeBook.ViewModels
         {
             _businessLayer = new RecipeManager();
             RecipeBook = new MyRecipeBook(_businessLayer);
-            SelectedRecipe = RecipeBook.Recipes[1];
+           // SelectedRecipe = RecipeBook.Recipes[1];
             NewRecipe = new Recipe();
         }
 
