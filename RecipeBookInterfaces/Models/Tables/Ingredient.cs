@@ -7,7 +7,6 @@ namespace RecipeBookInterfaces.Models.Tables
 {
     public class Ingredient
     {
-        [Key]
         public int Id { get; set; }
 
         public RawMaterial Material { get; set; }

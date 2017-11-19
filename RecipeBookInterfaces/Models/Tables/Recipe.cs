@@ -9,7 +9,6 @@ namespace RecipeBookInterfaces.Models.Tables
 {
     public class Recipe
     {
-        [Key]
         public int Id { get; set; }
 
         public string Name { get; set; }
@@ -18,7 +17,7 @@ namespace RecipeBookInterfaces.Models.Tables
 
         public int PreparationTime { get; set; }
         
-        public ObservableCollection<Ingredient> Ingredients { get; set; }
+        public List<Ingredient> Ingredients { get; set; }
 
         public RecipeType Type { get; set; }
 
@@ -26,7 +25,7 @@ namespace RecipeBookInterfaces.Models.Tables
 
         public Recipe()
         {
-            Ingredients = new ObservableCollection<Ingredient>();
+            Ingredients = new List<Ingredient>();
             Ingredients.Add(new Ingredient());
         }
     }

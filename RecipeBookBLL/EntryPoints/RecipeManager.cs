@@ -6,8 +6,10 @@ using RecipeBookInterfaces.Models.Tables;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.SqlClient;
 using System.IO;
 using System.Text;
+using Microsoft.Data.Sqlite;
 
 namespace RecipeBookBLL.Models
 {
@@ -15,7 +17,7 @@ namespace RecipeBookBLL.Models
     {
         public RecipeManager()
         {
-
+            CreateTables();
         }
 
         public List<Recipe> GetRecipes()
@@ -30,14 +32,14 @@ namespace RecipeBookBLL.Models
             var salt = new Ingredient { Id = 3, Material = rawSalt, Quantity = 2, Unit = "csipet" };
             var pea = new Ingredient { Id = 4, Material = rawSalt, Quantity = 1, Unit = "kg" };
 
-            var lasagnaIngredients = new ObservableCollection<Ingredient>
+            var lasagnaIngredients = new List<Ingredient>
             {
                 flour,
                 water,
                 salt
             };
 
-            var peaSoupIngredients = new ObservableCollection<Ingredient>
+            var peaSoupIngredients = new List<Ingredient>
             {
                 flour,
                 water,
@@ -45,7 +47,7 @@ namespace RecipeBookBLL.Models
                 pea
             };
 
-            var pizzaIngredients = new ObservableCollection<Ingredient>
+            var pizzaIngredients = new List<Ingredient>
             {
                 flour,
                 water
@@ -54,7 +56,9 @@ namespace RecipeBookBLL.Models
 
             var soup = new RecipeType { Id = 1, Name = "Leves" };
             var mainCourse = new RecipeType { Id = 2, Name = "Főétel" };
-            
+
+            AddRecipe(new Recipe { Id = 1, Name = "Borsóleves", Description = "Meg kell főzni a borsólevest. Nagyon finom.", PreparationTime = 30, Ingredients = peaSoupIngredients, Type = soup });
+
             return new List<Recipe>()
                 {
                     new Recipe {Id=1, Name="Borsóleves", Description="Meg kell főzni a borsólevest. Nagyon finom.", PreparationTime=30, Ingredients=peaSoupIngredients, Type=soup},
@@ -65,25 +69,54 @@ namespace RecipeBookBLL.Models
                 };
         }
 
+        
+
         public List<RecipeType> GetRecipeTypes()
         {
-            return new List<RecipeType>()
+            var recipeTypes = new List<RecipeType>();
+
+            using (SqliteConnection db = new SqliteConnection("Filename=recipeBook.db"))
             {
-                new RecipeType { Id = 1, Name = "Leves" },
-                new RecipeType { Id = 2, Name = "Főétel" },
-                new RecipeType { Id = 2, Name = "Desszert" }
-             };
+                db.Open();
+
+                SqliteCommand selectCommand = new SqliteCommand
+                    ("SELECT * from RecipeType", db);
+
+                SqliteDataReader query = selectCommand.ExecuteReader();
+
+                while (query.Read())
+                {
+                    recipeTypes.Add(new RecipeType { Id = query.GetInt32(0), Name = query.GetString(1) });
+                }
+
+                db.Close();
+            }
+
+            return recipeTypes;
         }
 
         public List<RawMaterial> GetRawMaterial()
         {
-            return new List<RawMaterial>()
+            var rawMaterials = new List<RawMaterial>();
+
+            using (SqliteConnection db = new SqliteConnection("Filename=recipeBook.db"))
             {
-                new RawMaterial { Id = 1, Name = "liszt" },
-                new RawMaterial { Id = 2, Name = "víz" },
-                new RawMaterial { Id = 2, Name = "só" },
-                new RawMaterial { Id = 2, Name = "borsó" }
-             };
+                db.Open();
+
+                SqliteCommand selectCommand = new SqliteCommand
+                    ("SELECT * from RawMaterial", db);
+
+                SqliteDataReader query = selectCommand.ExecuteReader();
+
+                while (query.Read())
+                {
+                    rawMaterials.Add(new RawMaterial { Id = query.GetInt32(0), Name = query.GetString(1) });
+                }
+
+                db.Close();
+            }
+
+            return rawMaterials;
         }
 
         public List<string> GetUnits()
@@ -100,17 +133,153 @@ namespace RecipeBookBLL.Models
 
         public void AddRecipe(Recipe recipe)
         {
-            
+            using (SqliteConnection db = new SqliteConnection("Filename=recipeBook.db"))
+            {
+                db.Open();
+
+                //Insert recipe
+                try
+                {
+                    SqliteCommand insertRecipe = new SqliteCommand();
+                    insertRecipe.Connection = db;
+
+                    insertRecipe.CommandText = "INSERT INTO Recipe VALUES (NULL, @Name, @Description, @PrepTime, @RecipeType, NULL);";
+                    insertRecipe.Parameters.AddWithValue("@Name", recipe.Name);
+                    insertRecipe.Parameters.AddWithValue("@Description", recipe.Description);
+                    insertRecipe.Parameters.AddWithValue("@PrepTime", recipe.PreparationTime);
+                    insertRecipe.Parameters.AddWithValue("@RecipeType", recipe.Type.Id);
+                    //insertRecipe.Parameters.AddWithValue("@Image", recipe.Image);
+
+                    var a = (Int64)insertRecipe.ExecuteScalar();
+                }
+                catch
+                {
+                    
+                }
+
+
+
+                //Insert ingredients of the recipe
+                try
+                {
+                    foreach (var ingredient in recipe.Ingredients)
+                    {
+                        SqliteCommand insertIngredients = new SqliteCommand();
+                        insertIngredients.Connection = db;
+
+                        insertIngredients.CommandText = "INSERT INTO Ingredients VALUES (NULL, @RawMat, @Quantity, @Unit, @RecipeId);";
+                        insertIngredients.Parameters.AddWithValue("@RawMat", ingredient.Material.Id);
+                        insertIngredients.Parameters.AddWithValue("@Quantity", ingredient.Quantity);
+                        insertIngredients.Parameters.AddWithValue("@Unit", ingredient.Unit);
+                        insertIngredients.Parameters.AddWithValue("@RecipeId", 0);
+
+                        insertIngredients.ExecuteReader();
+                    }
+                }
+                catch
+                {
+                    
+                }
+
+                SqliteCommand delete1 = new SqliteCommand();
+                delete1.Connection = db;
+                delete1.CommandText = "DELETE FROM Recipe;";
+                var tmp = delete1.ExecuteScalar();
+
+                SqliteCommand delete2 = new SqliteCommand();
+                delete2.Connection = db;
+                delete2.CommandText = "DELETE FROM Ingredients;";
+                var tmp2 = delete2.ExecuteScalar();
+
+                db.Close();
+            }
+
         }
 
         public void DeleteRecipe(Recipe recipe)
         {
-            
+
         }
 
         public void ModifyRecipe(Recipe recipe)
         {
-            
+
         }
+
+        #region Private DB methods
+
+        private void CreateTables()
+        {
+            using (SqliteConnection db = new SqliteConnection("Filename=recipeBook.db"))
+            {
+                db.Open();
+                //String recipeTypeTableCommand =
+                //    @"CREATE TABLE IF NOT EXISTS RecipeType(
+                //    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+                //    NAME NVARCHAR(2048) NOT NULL UNIQUE)";
+
+                //String rawMaterialTableCommand =
+                //    @"CREATE TABLE IF NOT EXISTS RawMaterial(
+                //    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+                //    NAME NVARCHAR(2048) NOT NULL UNIQUE)";
+
+                //String recipeTableCommand =
+                //    @"CREATE TABLE IF NOT EXISTS Recipe(
+                //    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+                //    NAME NVARCHAR(2048) NOT NULL UNIQUE,
+                //    DESCRIPTION NVARCHAR(2048),
+                //    PREPARATION INTEGER,
+                //    RECIPETYPE_ID INTEGER,
+                //    IMAGE BLOB,
+                //    FOREIGN KEY(RECIPETYPE_ID) REFERENCES RecipeType(ID))";
+
+                //String ingredientsTableCommand =
+                //    @"CREATE TABLE IF NOT EXISTS Ingredients(
+                //    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+                //    RAWMATERIAL_ID INTEGER,
+                //    QUANTITY REAL,
+                //    UNIT NVARCHAR(100),
+                //    RECIPE_ID INTEGER,
+                //    FOREIGN KEY(RAWMATERIAL_ID) REFERENCES RawMaterial(ID),
+                //    FOREIGN KEY(RECIPE_ID) REFERENCES Recipe(ID))";
+
+                //SqliteCommand createTable1 = new SqliteCommand(recipeTypeTableCommand, db);
+                //SqliteCommand createTable2 = new SqliteCommand(rawMaterialTableCommand, db);
+                //SqliteCommand createTable3 = new SqliteCommand(recipeTableCommand, db);
+                //SqliteCommand createTable4 = new SqliteCommand(ingredientsTableCommand, db);
+
+                //createTable1.ExecuteReader();
+                //createTable2.ExecuteReader();
+                //createTable3.ExecuteReader();
+                //createTable4.ExecuteReader();
+
+
+                //SqliteCommand insertCommand = new SqliteCommand();
+                //insertCommand.Connection = db;
+
+                //// Use parameterized query to prevent SQL injection attacks
+                //insertCommand.CommandText = "INSERT INTO RawMaterial VALUES (NULL, @Entry);";
+                //insertCommand.Parameters.AddWithValue("@Entry", "só");
+
+                //insertCommand.ExecuteReader();
+
+
+                //SqliteCommand insertCommand2 = new SqliteCommand();
+                //insertCommand2.Connection = db;
+
+                //// Use parameterized query to prevent SQL injection attacks
+                //insertCommand2.CommandText = "INSERT INTO RawMaterial VALUES (NULL, @Entry);";
+                //insertCommand2.Parameters.AddWithValue("@Entry", "borsó");
+
+
+                //insertCommand2.ExecuteReader();
+
+                db.Close();
+            }
+        }
+
+
+
+        #endregion
     }
 }
