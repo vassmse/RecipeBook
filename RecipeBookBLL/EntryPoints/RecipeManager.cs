@@ -128,10 +128,10 @@ namespace RecipeBookBLL.Models
                     insertRecipe.Connection = db;
 
                     insertRecipe.CommandText = "INSERT INTO Recipe VALUES (NULL, @Name, @Description, @PrepTime, @RecipeType, NULL);";
-                    insertRecipe.Parameters.AddWithValue("@Name", recipe.Name);
-                    insertRecipe.Parameters.AddWithValue("@Description", recipe.Description);
-                    insertRecipe.Parameters.AddWithValue("@PrepTime", recipe.PreparationTime);
-                    insertRecipe.Parameters.AddWithValue("@RecipeType", recipe.Type.Id);
+                    insertRecipe.Parameters.AddWithValue("@Name", recipe?.Name??"");
+                    insertRecipe.Parameters.AddWithValue("@Description", recipe?.Description??"");
+                    insertRecipe.Parameters.AddWithValue("@PrepTime", recipe?.PreparationTime??0);
+                    insertRecipe.Parameters.AddWithValue("@RecipeType", recipe?.Type?.Id??0);
                     //insertRecipe.Parameters.AddWithValue("@Image", recipe.Image);
 
                     var a = insertRecipe.ExecuteScalar();
@@ -196,9 +196,9 @@ namespace RecipeBookBLL.Models
 
         #region Private DB methods
 
-        private List<Ingredient> GetIngredients(int recipeId)
+        private ObservableCollection<Ingredient> GetIngredients(int recipeId)
         {
-            var ingredients = new List<Ingredient>();
+            var ingredients = new ObservableCollection<Ingredient>();
 
             using (SqliteConnection db = new SqliteConnection("Filename=recipeBook.db"))
             {
