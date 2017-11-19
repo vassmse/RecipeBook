@@ -17,10 +17,10 @@
                 Margin="10"
                 ItemsSource="{Binding RecipeBook.RecipeTypes}"
                 DisplayMemberPath="Name" 
-                SelectedValuePath="Name" 
+                SelectedValuePath="Name"                     
                 SelectedItem="{Binding NewRecipe.Type, Mode=TwoWay}"
-                >
-                </ComboBox>
+                />
+
                 <TextBlock Text="Elkészítési idő"/>
                 <TextBox  Text="{Binding NewRecipe.PreparationTime, Mode=TwoWay}" Margin="10" />
                 <TextBlock Text="Leírás"/>

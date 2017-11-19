@@ -28,7 +28,7 @@ namespace RecipeBook.Views
 
         public AddRecipe()
         {
-            this.InitializeComponent();
+            InitializeComponent();
             DataContext = viewModel;
         }
 

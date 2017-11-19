@@ -16,7 +16,7 @@ namespace RecipeBookInterfaces.Models.Tables
         public string Description { get; set; }
 
         public int PreparationTime { get; set; }
-        
+
         public ObservableCollection<Ingredient> Ingredients { get; set; }
 
         public RecipeType Type { get; set; }

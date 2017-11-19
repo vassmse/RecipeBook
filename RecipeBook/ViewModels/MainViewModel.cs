@@ -26,7 +26,7 @@ namespace RecipeBook.ViewModels
             set
             {
                 newRecipe = value;
-                RaisePropertyChanged("NewRecipe");
+                RaisePropertyChanged(nameof(NewRecipe));
             }
         }
 
@@ -37,7 +37,7 @@ namespace RecipeBook.ViewModels
             set
             {
                 recipeBook = value;
-                RaisePropertyChanged("RecipeBook");
+                RaisePropertyChanged(nameof(RecipeBook));
             }
         }
 
@@ -48,7 +48,7 @@ namespace RecipeBook.ViewModels
             set
             {
                 selectedRecipe = value;
-                RaisePropertyChanged("SelectedRecipe");
+                RaisePropertyChanged(nameof(SelectedRecipe));
             }
         }
 
@@ -59,7 +59,7 @@ namespace RecipeBook.ViewModels
             set
             {
                 selectedRecipes = value;
-                RaisePropertyChanged("SelectedRecipes");
+                RaisePropertyChanged(nameof(SelectedRecipes));
             }
         }
 

@@ -48,8 +48,8 @@
         <controls:MasterDetailsView
             Grid.Row="1"
             x:Name="MasterDetailsViewControl"
-            ItemsSource="{x:Bind ViewModel.SelectedRecipes, Mode=OneWay}"
-            SelectedItem="{x:Bind ViewModel.SelectedRecipe, Mode=OneWay}"
+            ItemsSource="{x:Bind ViewModel.SelectedRecipes}"
+            SelectedItem="{x:Bind ViewModel.SelectedRecipe}"
             ItemTemplate="{StaticResource ItemTemplate}"
             DetailsTemplate="{StaticResource DetailsTemplate}"
             NoSelectionContentTemplate="{StaticResource NoSelectionContentTemplate}"

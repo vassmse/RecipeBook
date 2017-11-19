@@ -19,7 +19,7 @@ namespace RecipeBook.Models
             set
             {
                 recipes = value;
-                RaisePropertyChanged("Recipes");
+                RaisePropertyChanged(nameof(Recipes));
             }
         }        
 
@@ -39,7 +39,7 @@ namespace RecipeBook.Models
             set
             {
                 soups = value;
-                RaisePropertyChanged("Soups");
+                RaisePropertyChanged(nameof(Soups));
             }
         }
 
@@ -50,7 +50,7 @@ namespace RecipeBook.Models
             set
             {
                 mainCourses = value;
-                RaisePropertyChanged("MainCourses");
+                RaisePropertyChanged(nameof(MainCourses));
             }
         }
 
@@ -61,7 +61,7 @@ namespace RecipeBook.Models
             set
             {
                 desserts = value;
-                RaisePropertyChanged("Desserts");
+                RaisePropertyChanged(nameof(Desserts));
             }
         }
 

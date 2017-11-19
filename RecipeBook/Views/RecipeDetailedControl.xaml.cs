@@ -31,7 +31,7 @@ namespace RecipeBook.Views
 
         public RecipeDetailedControl()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         private static void OnMasterMenuItemPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
