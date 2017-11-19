@@ -36,7 +36,7 @@ namespace RecipeBookBLL.Models
                 {
                     //Get ingredients
                     var ingredients = new List<Ingredient>();
-                    SqliteCommand selectIngredientsCommand = new SqliteCommand("SELECT ingredients.id, ingredients.quantity, ingredients.unit,RawMaterial.id, RawMaterial.name  from Ingredients, RawMaterial where Ingredients.ID==@id AND ingredients.RAWMATERIAL_ID == rawmaterial.id; ", db);
+                    SqliteCommand selectIngredientsCommand = new SqliteCommand("SELECT ingredients.id, ingredients.quantity, ingredients.unit,RawMaterial.id, RawMaterial.name  from Ingredients, RawMaterial where Ingredients.RECIPE_ID==@id AND ingredients.RAWMATERIAL_ID == rawmaterial.id; ", db);
                     selectIngredientsCommand.Parameters.AddWithValue("@id", query.GetInt32(0));
                     SqliteDataReader inQuery = selectIngredientsCommand.ExecuteReader();
 
