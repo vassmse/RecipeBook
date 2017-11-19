@@ -5,12 +5,23 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 
 namespace RecipeBook.Models
 {
     public class MyRecipeBook : IMyRecipeBook, INotifyPropertyChanged
     {
-        public List<Recipe> Recipes { get; set; }
+        private ObservableCollection<Recipe> recipes;
+
+        public ObservableCollection<Recipe> Recipes
+        {
+            get { return recipes; }
+            set
+            {
+                recipes = value;
+                RaisePropertyChanged("Recipes");
+            }
+        }        
 
         public List<RecipeType> RecipeTypes { get; set; }
 
@@ -54,18 +65,17 @@ namespace RecipeBook.Models
             }
         }
 
-
-
         public MyRecipeBook(IRecipeManager businessLayer)
         {
             BusinessLayer = businessLayer;
-            Recipes = BusinessLayer.GetRecipes();
+            Recipes =  BusinessLayer.GetRecipes();
             RecipeTypes = BusinessLayer.GetRecipeTypes();
             RawMaterials = BusinessLayer.GetRawMaterial();
-            Units = BusinessLayer.GetUnits();
-            Soups = new ObservableCollection<Recipe>(Recipes.FindAll(r => r.Type.Name == "Leves"));
-            MainCourses = new ObservableCollection<Recipe>(Recipes.FindAll(r => r.Type.Name == "Főétel"));
-            Desserts = new ObservableCollection<Recipe>(Recipes.FindAll(r => r.Type.Name == "Desszert"));
+            Units = BusinessLayer.GetUnits();       
+
+            Soups = new ObservableCollection<Recipe>(Recipes.Where(r => r.Type.Name == "Leves"));
+            MainCourses = new ObservableCollection<Recipe>(Recipes.Where(r => r.Type.Name == "Főétel"));
+            Desserts = new ObservableCollection<Recipe>(Recipes.Where(r => r.Type.Name == "Desszert"));
         }
 
         #region BL methods
@@ -76,9 +86,9 @@ namespace RecipeBook.Models
             {
                 Recipes.Add(recipe);
                 BusinessLayer.AddRecipe(recipe);
-                Soups = new ObservableCollection<Recipe>(Recipes.FindAll(r => r.Type.Name == "Leves"));
-                MainCourses = new ObservableCollection<Recipe>(Recipes.FindAll(r => r.Type.Name == "Főétel"));
-                Desserts = new ObservableCollection<Recipe>(Recipes.FindAll(r => r.Type.Name == "Desszert"));
+                Soups = new ObservableCollection<Recipe>(Recipes.Where(r => r.Type.Name == "Leves"));
+                MainCourses = new ObservableCollection<Recipe>(Recipes.Where(r => r.Type.Name == "Főétel"));
+                Desserts = new ObservableCollection<Recipe>(Recipes.Where(r => r.Type.Name == "Desszert"));
             }
         }
 

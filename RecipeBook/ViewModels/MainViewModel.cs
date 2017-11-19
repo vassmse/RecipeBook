@@ -19,10 +19,7 @@ namespace RecipeBook.ViewModels
 
         private IRecipeManager _businessLayer { get; set; }
 
-        private Recipe newRecipe;
-
-        public ICommand AddEmployeeCommand { get; set; }
-
+        private Recipe newRecipe;   
         public Recipe NewRecipe
         {
             get { return newRecipe; }
@@ -58,7 +55,7 @@ namespace RecipeBook.ViewModels
         private ObservableCollection<Recipe> selectedRecipes;
         public ObservableCollection<Recipe> SelectedRecipes
         {
-            get { return new ObservableCollection<Recipe>(RecipeBook.Recipes.Where(r => r.Type == SelectedRecipe.Type)); }
+            get { return new ObservableCollection<Recipe>(RecipeBook.Recipes.Where(r => r.Type.Name == SelectedRecipe?.Type.Name)); }
             set
             {
                 selectedRecipes = value;
@@ -86,8 +83,8 @@ namespace RecipeBook.ViewModels
         {
             RecipeBook.AddRecipe(NewRecipe);
             SelectedRecipe = NewRecipe;
+            SelectedRecipes = new ObservableCollection<Recipe>(RecipeBook.Recipes.Where(r => r.Type.Name == SelectedRecipe.Type.Name));
             NewRecipe = new Recipe();            
-            SelectedRecipes = new ObservableCollection<Recipe>(RecipeBook.Recipes.Where(r => r.Type == SelectedRecipe.Type));
         }
 
         public void AddIngredient()

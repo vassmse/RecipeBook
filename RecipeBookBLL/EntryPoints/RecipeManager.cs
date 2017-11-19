@@ -20,11 +20,11 @@ namespace RecipeBookBLL.Models
 
         }
 
-        public List<Recipe> GetRecipes()
+        public ObservableCollection<Recipe> GetRecipes()
         {
             try
             {
-                var recipes = new List<Recipe>();
+                var recipes = new ObservableCollection<Recipe>();
 
                 using (SqliteConnection db = new SqliteConnection("Filename=recipeBook.db"))
                 {
@@ -51,7 +51,7 @@ namespace RecipeBookBLL.Models
             {
                 //TODO
                 Console.WriteLine(e);
-                return new List<Recipe>();
+                return new ObservableCollection<Recipe>();
             }
         }
 
