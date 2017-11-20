@@ -42,7 +42,5 @@ namespace RecipeBook.Views
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(PivotPage));
         }
-
-
     }
 }

@@ -49,9 +49,9 @@
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Material.Name, Mode=OneWay}" Style="{StaticResource SubtitleTextBlockStyle}" Margin="5,8,5,0"/>
-                                <TextBlock Text="{Binding Quantity, Mode=OneWay}" Style="{StaticResource SubtitleTextBlockStyle}" Margin="5,8,5,0"/>
-                                <TextBlock Text="{Binding Unit, Mode=OneWay}" Style="{StaticResource SubtitleTextBlockStyle}" Margin="5,8,5,0"/>
+                                <TextBlock Text="{Binding Quantity, Mode=OneWay}" Style="{StaticResource BodyTextBlockStyle}" Margin="3,3,3,0"/>
+                                <TextBlock Text="{Binding Unit, Mode=OneWay}" Style="{StaticResource BodyTextBlockStyle}" Margin="3,3,3,0"/>
+                                <TextBlock Text="{Binding Material.Name, Mode=OneWay}" Style="{StaticResource BodyTextBlockStyle}" Margin="3,3,3,0"/>
                             </StackPanel>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>

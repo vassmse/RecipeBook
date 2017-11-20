@@ -8,8 +8,8 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
-        <Pivot Title="ReceptKönyv" x:Name="MainPivot">
-            <PivotItem>
+        <Pivot Title="ReceptKönyv" x:Name="MainPivot" SelectionChanged="mypivot_SelectionChanged">
+            <!--<PivotItem>
                 <PivotItem.Header>
                     <StackPanel>
                         <SymbolIcon Symbol="Home"/>
@@ -19,12 +19,12 @@
                 <Frame>
                     <views:MainPage/>
                 </Frame>
-            </PivotItem>
+            </PivotItem>-->
 
             <PivotItem  >
                 <PivotItem.Header>
                     <StackPanel Orientation="Vertical">
-                        <SymbolIcon Symbol="BrowsePhotos"/>
+                        <SymbolIcon Symbol="Home"/>
                         <TextBlock Text="Receptek"/>
                     </StackPanel>
                 </PivotItem.Header>
@@ -99,15 +99,13 @@
 
             <Pivot.RightHeader>
                 <CommandBar OverflowButtonVisibility="Collapsed" Background="Transparent">
-                    <AppBarButton Label="Add" Icon="Add">
-                        <TextBox Text="test"/>
+                    <AppBarButton Label="Add" Icon="Add" IsEnabled="False">
                     </AppBarButton>
-
                     <AppBarSeparator/>
-                    <AppBarButton Icon="Edit"/>
-                    <AppBarButton Icon="Delete"/>
+                    <AppBarButton Icon="Edit" IsEnabled="False"/>
+                    <AppBarButton Icon="Delete" IsEnabled="False"/>
                     <AppBarSeparator/>
-                    <AppBarButton Icon="Save"/>
+                    <AppBarButton Icon="Save" IsEnabled="False"/>
                 </CommandBar>
             </Pivot.RightHeader>
         </Pivot>

@@ -29,33 +29,4 @@
     </Grid>
 </Page>
 
-
-<!--<Grid>
-        <ItemsControl ItemsSource="{Binding RecipeBook.Recipes}">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel />
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Grid Margin="10" Background="AliceBlue">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="80" />
-                            <ColumnDefinition Width="200" />
-                            <ColumnDefinition Width="200" />
-                        </Grid.ColumnDefinitions>
-                        <Image Source="..\Images\food.PNG" Height="80" Grid.Column="0"/>
-                        <TextBlock Text="{Binding Name}" Grid.Column="1"/>
-                        <TextBlock Text="{Binding PreparationTime}" Grid.Column="2"/>
-
-                    </Grid>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-    </Grid>
-
-
-</Page>-->
-
     

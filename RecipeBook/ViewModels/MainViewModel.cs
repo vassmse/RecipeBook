@@ -71,13 +71,13 @@ namespace RecipeBook.ViewModels
         {
             _businessLayer = new RecipeManager();
             RecipeBook = new MyRecipeBook(_businessLayer);
-            SelectedRecipe = RecipeBook.Recipes[0];
+            SelectedRecipe = RecipeBook.Recipes[1];
             NewRecipe = new Recipe();
         }
 
         #endregion
 
-        #region Public methods
+        #region Public methods    
 
         public void AddRecipe()
         {
@@ -85,6 +85,11 @@ namespace RecipeBook.ViewModels
             SelectedRecipe = NewRecipe;
             SelectedRecipes = new ObservableCollection<Recipe>(RecipeBook.Recipes.Where(r => r.Type.Name == SelectedRecipe.Type.Name));
             NewRecipe = new Recipe();
+        }
+
+        public void Refresh()
+        {
+            RecipeBook = new MyRecipeBook(_businessLayer);
         }
 
         public void AddIngredient()

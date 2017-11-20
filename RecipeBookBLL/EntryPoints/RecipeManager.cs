@@ -204,7 +204,7 @@ namespace RecipeBookBLL.Models
                 while (query.Read())
                 {
                     var material = new RawMaterial { Id = query.GetInt32(3), Name = query.GetString(4) };
-                    ingredients.Add(new Ingredient { Id = query.GetInt32(0), Quantity = query.GetInt32(1), Unit = query.GetString(2), Material = material });
+                    ingredients.Add(new Ingredient { Id = query.GetInt32(0), Quantity = query.GetDouble(1), Unit = query.GetString(2), Material = material });
                 }
                 db.Close();
             }

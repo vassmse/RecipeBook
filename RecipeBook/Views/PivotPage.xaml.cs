@@ -23,17 +23,25 @@ namespace RecipeBook.Views
     /// </summary>
     public sealed partial class PivotPage : Page
     {
+        MainViewModel ViewModel = new MainViewModel();
+
         public PivotPage()
         {
-            NavigationCacheMode = NavigationCacheMode.Required;   
-            DataContext = new MainViewModel();
+            NavigationCacheMode = NavigationCacheMode.Required;
+            DataContext = ViewModel;
             InitializeComponent();
+            MainPivot.CacheMode = null;
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
-            MainPivot.SelectedIndex = 2;
+            MainPivot.SelectedIndex = 1;
             base.OnNavigatedFrom(e);
+        }
+
+        private void mypivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
 
 

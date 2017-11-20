@@ -26,8 +26,6 @@
                 <TextBlock Text="Leírás"/>
                 <TextBox  Text="{Binding NewRecipe.Description, Mode=TwoWay}" Margin="10" Height="150" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="True" />
 
-                <Button Content="Kép feltöltése..." Margin="10" />
-
                 <StackPanel Orientation="Vertical" Background="LightGray" >
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Hozzávalók"  Margin="10"/>
